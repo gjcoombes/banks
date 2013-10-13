@@ -63,58 +63,69 @@ PROPORTION_TO_PERCENT = 100
 ### CLASSES ###
 
 ### FUNCTIONS ###
-def make_shape_file(season, nc_var, cfg):
+def mk_shp_v4(season, nc_var, cfg):
     """Write a shape file to disk"""
-    nc_var_str = cfg['nc_var_str'][nc_var]
-    nc_fn = NC_FN_TPL.format(season=season.upper())
-    shp_fn = SHP_FN_TPL.format(season=season, var=nc_var)
-    nc_fp = os.path.join(NC_DIR, nc_fn)
-    shp_fp = os.path.join(SHP_DIR, shp_fn)
-    prob_thresholds = prob_threshold_array()
+    nc_fp = os.path.join(NC_DIR, NC_FN_TPL.format(season=season.upper()))
+    shp_fp = os.path.join(SHP_DIR, SHP_FN_TPL.format(season=season, var=nc_var))
+    prob_bins = prob_threshold_array()
     threshold_idx = cfg['threshold_idx'][nc_var]
     nc_var_str = cfg['nc_var_str'][nc_var]
-    print("nc_var_str is {}".format(nc_var_str))
 
     root = Dataset(nc_fp, 'r')
-    dlon, dlat = grid_edge_length(root)
-    lon = root.variables['lon']
-    lat = root.variables['lat']
-    var_array = root.variables[nc_var_str]
+    lon_corners = compute_corners(root.variables['lon'])
+    lat_corners = compute_corners(root.variables['lat'])
+    prob_arr = root.variables[nc_var_str][threshold_idx, :, :]
 
     schema = {'geometry':'Polygon',
               'properties': {nc_var_str: 'float'}}
-    print("Schema is {}".format(schema))
     driver = "ESRI Shapefile"
-#    start_time = lap_time = time.time()
+
     with fiona.collection(shp_fp, 'w', driver, schema) as sink:
-        for lower_prop, upper_prop in prob_thresholds[1:]:  # discard first bin
-#            print("Processing the {} to {} threshold".format(lower_prop, upper_prop))
-            prob_percent = lower_prop * PROPORTION_TO_PERCENT
-            threshold_arr = var_array[threshold_idx, :, :]
-            log_arr = np.logical_and(threshold_arr >= lower_prop,
-                                     threshold_arr <  upper_prop)
-            idx_arr = np.argwhere(log_arr)
-#            n_records = len(idx_arr)
-#            print("Writing {} records".format(n_records))
-            for coord_idx in idx_arr:
-                coord = (lon[coord_idx[1]], lat[coord_idx[0]])
-                polygon = grid_polygon(coord, dlon, dlat)
-                record = {'geometry': mapping(polygon),
-                          'properties': {nc_var_str: prob_percent }}
-                sink.write(record)
-#            threshold_time = time.time() - lap_time
-#            polygon_rate = n_records / threshold_time
-#            print("Threshold processed in {} s at {} polygons/second".format(
-#                    threshold_time, polygon_rate))
-#            lap_time = time.time()
+        compute_and_write_records(sink, prob_bins, prob_arr,
+                                  lon_corners, lat_corners, nc_var_str)
     del root
 
-def grid_edge_length(root):
-    """Return a tuple of (delta_lon, delta_lat)
+def compute_corners(vec):
+    """Return the corner values of each grid cell
+
+    A vector shifted by half a step plus one element
     """
-    delta_lon = np.mean(np.diff(root.variables["lon"]))
-    delta_lat = np.mean(np.diff(root.variables["lat"]))
-    return (delta_lon, delta_lat)
+    info("vec shape is {}".format(vec.shape))
+    n = vec.shape[0]
+    delta = (vec[1] - vec[0])
+    corners = np.zeros((vec.shape[0] + 1))
+    info("corners shape is {}".format(corners.shape))
+    corners[:n] = vec - delta
+    corners[n] = vec[n-1] + delta
+    return corners
+
+def compute_and_write_records(sink, prob_bins, prob_arr,
+                              lon, lat, nc_var_str):
+    """Write a polygon for each grid cell by bins
+    """
+    for i in range(1, prob_bins.shape[0]): # discard first bin
+        lower_prob = prob_bins[i, 0]
+        upper_prob = prob_bins[i, 1]
+        log_arr = np.logical_and(prob_arr >= lower_prob,
+                                 prob_arr <  upper_prob)
+        lat_ixs, lon_ixs = np.nonzero(log_arr)  # Find the indexes of non zero elements
+        for i in range(lon_ixs.shape[0]):       # Len of either lat_ixs or lon_ixs
+            lon_idx = lon_ixs[i]                # find the ith index
+            lat_idx = lat_ixs[i]
+            lon1, lon2 = lon[lon_idx: lon_idx+2]  # Find the actual corner values
+            lat1, lat2 = lat[lat_idx: lat_idx+2]
+            verts = ((lon1, lat1),
+                    (lon2, lat1),
+                    (lon2, lat2),
+                    (lon1, lat2),
+                    (lon1, lat1))
+            record = {'geometry': {"type": "Polygon",
+                                   "coordinates": ((verts,))},
+                      'properties': {
+                          nc_var_str: lower_prob * PROPORTION_TO_PERCENT
+                       }
+                     }
+            sink.write(record)
 
 def grid_polygon(coord, dlon, dlat):
     """Given a lon, lat point, construct a grid square polygon"""
@@ -138,7 +149,7 @@ def prob_threshold_array(step=0.02):
     eg tuple (0.02, 0.04)
     """
     prob_vector = np.arange(0., 1 + 1.5 * step, step) # Including end points
-    prob_thresholds = np.zeros((len(prob_vector) -1, 2))
+    prob_thresholds = np.zeros((len(prob_vector)-1, 2))
     prob_thresholds[:,0] = prob_vector[:-1]
     prob_thresholds[:,1] = prob_vector[1:]
     return prob_thresholds
@@ -156,7 +167,7 @@ if __name__ == "__main__":
 #    for season, nc_var in tuples:
     for season, nc_var in [("sum", "entr_prob_100ppb")]:
         print("*** {} {} ***".format(season, nc_var))
-        make_shape_file(season, nc_var, CONFIG)
+        mk_shp_v2(season, nc_var, CONFIG)
 
     elapsed = time.time() - start_time
     print("Full run in {} seconds".format(elapsed))

@@ -85,28 +85,102 @@ def make_shape_file(season, nc_var, cfg):
               'properties': {nc_var_str: 'float'}}
     print("Schema is {}".format(schema))
     driver = "ESRI Shapefile"
-#    start_time = lap_time = time.time()
+
     with fiona.collection(shp_fp, 'w', driver, schema) as sink:
         for lower_prop, upper_prop in prob_thresholds[1:]:  # discard first bin
-#            print("Processing the {} to {} threshold".format(lower_prop, upper_prop))
             prob_percent = lower_prop * PROPORTION_TO_PERCENT
             threshold_arr = var_array[threshold_idx, :, :]
             log_arr = np.logical_and(threshold_arr >= lower_prop,
                                      threshold_arr <  upper_prop)
             idx_arr = np.argwhere(log_arr)
-#            n_records = len(idx_arr)
-#            print("Writing {} records".format(n_records))
             for coord_idx in idx_arr:
                 coord = (lon[coord_idx[1]], lat[coord_idx[0]])
                 polygon = grid_polygon(coord, dlon, dlat)
                 record = {'geometry': mapping(polygon),
                           'properties': {nc_var_str: prob_percent }}
                 sink.write(record)
-#            threshold_time = time.time() - lap_time
-#            polygon_rate = n_records / threshold_time
-#            print("Threshold processed in {} s at {} polygons/second".format(
-#                    threshold_time, polygon_rate))
-#            lap_time = time.time()
+    del root
+
+def mk_shp_v2(season, nc_var, cfg):
+    """Write a shape file to disk"""
+    nc_var_str = cfg['nc_var_str'][nc_var]
+    nc_fn = NC_FN_TPL.format(season=season.upper())
+    shp_fn = SHP_FN_TPL.format(season=season, var=nc_var)
+    nc_fp = os.path.join(NC_DIR, nc_fn)
+    shp_fp = os.path.join(SHP_DIR, shp_fn)
+    prob_thresholds = prob_threshold_array()
+    threshold_idx = cfg['threshold_idx'][nc_var]
+    nc_var_str = cfg['nc_var_str'][nc_var]
+    print("nc_var_str is {}".format(nc_var_str))
+
+    root = Dataset(nc_fp, 'r')
+    lon = root.variables['lon']
+    lat = root.variables['lat']
+    dlon = lon[1] - lon[0]
+    dlat = lat[1] - lat[0]
+    var_array = root.variables[nc_var_str]
+    threshold_arr = var_array[threshold_idx, :, :]
+
+    schema = {'geometry':'Polygon',
+              'properties': {nc_var_str: 'float'}}
+    print("Schema is {}".format(schema))
+    driver = "ESRI Shapefile"
+
+    with fiona.collection(shp_fp, 'w', driver, schema) as sink:
+        for lower_prop, upper_prop in prob_thresholds[1:]:  # discard first bin
+            prob_percent = lower_prop * PROPORTION_TO_PERCENT
+
+            log_arr = np.logical_and(threshold_arr >= lower_prop,
+                                     threshold_arr <  upper_prop)
+            idx_arr = np.argwhere(log_arr)
+            for lat_idx, lon_idx in idx_arr:
+                coord = (lon[lon_idx], lat[lat_idx])
+                polygon = grid_polygon(coord, dlon, dlat)
+                record = {'geometry': mapping(polygon),
+                          'properties': {nc_var_str: prob_percent }}
+                sink.write(record)
+    del root
+
+def mk_shp_v3(season, nc_var, cfg):
+    """Write a shape file to disk"""
+    nc_var_str = cfg['nc_var_str'][nc_var]
+    nc_fn = NC_FN_TPL.format(season=season.upper())
+    shp_fn = SHP_FN_TPL.format(season=season, var=nc_var)
+    nc_fp = os.path.join(NC_DIR, nc_fn)
+    shp_fp = os.path.join(SHP_DIR, shp_fn)
+    prob_thresholds = prob_threshold_array()
+    threshold_idx = cfg['threshold_idx'][nc_var]
+    nc_var_str = cfg['nc_var_str'][nc_var]
+    print("nc_var_str is {}".format(nc_var_str))
+
+    root = Dataset(nc_fp, 'r')
+    lon = np.array(root.variables['lon'])
+    lat = np.array(root.variables['lat'])
+    dlon = lon[1] - lon[0]
+    dlat = lat[1] - lat[0]
+    var_array = root.variables[nc_var_str]
+    threshold_arr = var_array[threshold_idx, :, :]
+
+    schema = {'geometry':'Polygon',
+              'properties': {nc_var_str: 'float'}}
+    print("Schema is {}".format(schema))
+    driver = "ESRI Shapefile"
+
+    with fiona.collection(shp_fp, 'w', driver, schema) as sink:
+        for lower_prop, upper_prop in prob_thresholds[1:]:  # discard first bin
+            prob_percent = lower_prop * PROPORTION_TO_PERCENT
+
+            log_arr = np.logical_and(threshold_arr >= lower_prop,
+                                     threshold_arr <  upper_prop)
+            lat_idx, lon_idx = np.nonzero(log_arr)
+            lons = lon[lon_idx].reshape(-1,1)
+            lats = lat[lat_idx].reshape(-1,1)
+
+            for lon_datum, lat_datum in np.hstack((lons, lats)):
+                polygon = grid_polygon((lon_datum, lat_datum), dlon, dlat)
+                record = {'geometry': mapping(polygon),
+                          'properties': {nc_var_str: prob_percent }}
+                sink.write(record)
     del root
 
 def grid_edge_length(root):

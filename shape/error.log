@@ -1,0 +1,1417 @@
+In file included from c:\mingw\include\crtdefs.h:63:0,
+                 from c:\mingw\include\io.h:19,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\vadefs.h:48:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'unsigned'
+ typedef _W64 unsigned int   uintptr_t;
+              ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\crtdefs.h:402:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'unsigned'
+ typedef _W64 unsigned int   size_t;
+              ^
+c:\mingw\include\crtdefs.h:409:1: error: unknown type name 'size_t'
+ typedef size_t rsize_t;
+ ^
+c:\mingw\include\crtdefs.h:418:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'int'
+ typedef _W64 int            intptr_t;
+              ^
+c:\mingw\include\crtdefs.h:436:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'int'
+ typedef _W64 int            ptrdiff_t;
+              ^
+c:\mingw\include\crtdefs.h:473:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'long'
+ typedef _W64 long __time32_t;   /* 32-bit time value */
+              ^
+c:\mingw\include\crtdefs.h:478:1: error: unknown type name '__int64'
+ typedef __int64 __time64_t;     /* 64-bit time value */
+ ^
+c:\mingw\include\crtdefs.h:550:127: error: unknown type name 'uintptr_t'
+ void __cdecl _invoke_watson(_In_opt_z_ const wchar_t *, _In_opt_z_ const wchar_t *, _In_opt_z_ const wchar_t *, unsigned int, uintptr_t);
+                                                                                                                               ^
+In file included from C:\Anaconda\include/pyconfig.h:68:0,
+                 from helloworld.c:8:
+c:\mingw\include\io.h:42:9: error: unknown type name '__time32_t'
+         __time32_t  time_create;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:43:9: error: unknown type name '__time32_t'
+         __time32_t  time_access;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:44:9: error: unknown type name '__time32_t'
+         __time32_t  time_write;
+         ^
+c:\mingw\include\io.h:51:9: error: unknown type name '__time32_t'
+         __time32_t  time_create;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:52:9: error: unknown type name '__time32_t'
+         __time32_t  time_access;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:53:9: error: unknown type name '__time32_t'
+         __time32_t  time_write;
+         ^
+c:\mingw\include\io.h:54:9: error: unknown type name '__int64'
+         __int64     size;
+         ^
+c:\mingw\include\io.h:72:9: error: unknown type name '__int64'
+         __int64     size;
+         ^
+c:\mingw\include\io.h:104:9: error: unknown type name '__time32_t'
+         __time32_t  time_create;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:105:9: error: unknown type name '__time32_t'
+         __time32_t  time_access;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:106:9: error: unknown type name '__time32_t'
+         __time32_t  time_write;
+         ^
+c:\mingw\include\io.h:113:9: error: unknown type name '__time32_t'
+         __time32_t  time_create;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:114:9: error: unknown type name '__time32_t'
+         __time32_t  time_access;    /* -1 for FAT file systems */
+         ^
+c:\mingw\include\io.h:115:9: error: unknown type name '__time32_t'
+         __time32_t  time_write;
+         ^
+c:\mingw\include\io.h:116:9: error: unknown type name '__int64'
+         __int64     size;
+         ^
+c:\mingw\include\io.h:134:9: error: unknown type name '__int64'
+         __int64     size;
+         ^
+c:\mingw\include\io.h:186:80: error: unknown type name '__int64'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _chsize_s(_In_ int _FileHandle,_In_ __int64 _Size);
+                                                                                ^
+In file included from C:\Anaconda\include/pyconfig.h:68:0,
+                 from helloworld.c:8:
+c:\mingw\include\io.h:194:41: error: expected ',' or ';' before '_findfirst32'
+ _Check_return_ _CRTIMP intptr_t __cdecl _findfirst32(_In_z_ const char * _Filename, _Out_ struct _finddata32_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:195:53: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _findnext32(_In_ intptr_t _FindHandle, _Out_ struct _finddata32_t * _FindData);
+                                                     ^
+c:\mingw\include\io.h:196:56: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _findclose(_In_ intptr_t _FindHandle);
+                                                        ^
+c:\mingw\include\io.h:200:102: error: unknown type name 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _mktemp_s(_Inout_z_cap_(_Size) char * _TemplateName, _In_ size_t _Size);
+                                                                                                      ^
+c:\mingw\include\io.h:222:40: error: expected ',' or ';' before '_filelengthi64'
+ _Check_return_ _CRTIMP __int64 __cdecl _filelengthi64(_In_ int _FileHandle);
+                                        ^
+c:\mingw\include\io.h:223:41: error: expected ',' or ';' before '_findfirst32i64'
+ _Check_return_ _CRTIMP intptr_t __cdecl _findfirst32i64(_In_z_ const char * _Filename, _Out_ struct _finddata32i64_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:224:41: error: expected ',' or ';' before '_findfirst64i32'
+ _Check_return_ _CRTIMP intptr_t __cdecl _findfirst64i32(_In_z_ const char * _Filename, _Out_ struct _finddata64i32_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:225:41: error: expected ',' or ';' before '_findfirst64'
+ _Check_return_ _CRTIMP intptr_t __cdecl _findfirst64(_In_z_ const char * _Filename, _Out_ struct __finddata64_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:226:56: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _findnext32i64(_In_ intptr_t _FindHandle, _Out_ struct _finddata32i64_t * _FindData);
+                                                        ^
+c:\mingw\include\io.h:227:56: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _findnext64i32(_In_ intptr_t _FindHandle, _Out_ struct _finddata64i32_t * _FindData);
+                                                        ^
+c:\mingw\include\io.h:228:53: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _findnext64(_In_ intptr_t _FindHandle, _Out_ struct __finddata64_t * _FindData);
+                                                     ^
+c:\mingw\include\io.h:229:44: error: expected ',' or ';' before '_lseeki64'
+ _Check_return_opt_ _CRTIMP __int64 __cdecl _lseeki64(_In_ int _FileHandle, _In_ __int64 _Offset, _In_ int _Origin);
+                                            ^
+c:\mingw\include\io.h:230:40: error: expected ',' or ';' before '_telli64'
+ _Check_return_ _CRTIMP __int64 __cdecl _telli64(_In_ int _FileHandle);
+                                        ^
+c:\mingw\include\io.h:253:41: error: expected ',' or ';' before '_wfindfirst32'
+ _Check_return_ _CRTIMP intptr_t __cdecl _wfindfirst32(_In_z_ const wchar_t * _Filename, _Out_ struct _wfinddata32_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:254:54: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _wfindnext32(_In_ intptr_t _FindHandle, _Out_ struct _wfinddata32_t * _FindData);
+                                                      ^
+c:\mingw\include\io.h:257:94: error: unknown type name 'size_t'
+ _CRTIMP errno_t __cdecl _wmktemp_s(_Inout_z_cap_(_SizeInWords) wchar_t * _TemplateName, _In_ size_t _SizeInWords);
+                                                                                              ^
+c:\mingw\include\io.h:261:41: error: expected ',' or ';' before '_wfindfirst32i64'
+ _Check_return_ _CRTIMP intptr_t __cdecl _wfindfirst32i64(_In_z_ const wchar_t * _Filename, _Out_ struct _wfinddata32i64_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:262:41: error: expected ',' or ';' before '_wfindfirst64i32'
+ _Check_return_ _CRTIMP intptr_t __cdecl _wfindfirst64i32(_In_z_ const wchar_t * _Filename, _Out_ struct _wfinddata64i32_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:263:41: error: expected ',' or ';' before '_wfindfirst64'
+ _Check_return_ _CRTIMP intptr_t __cdecl _wfindfirst64(_In_z_ const wchar_t * _Filename, _Out_ struct _wfinddata64_t * _FindData);
+                                         ^
+c:\mingw\include\io.h:264:57: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _wfindnext32i64(_In_ intptr_t _FindHandle, _Out_ struct _wfinddata32i64_t * _FindData);
+                                                         ^
+c:\mingw\include\io.h:265:57: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _wfindnext64i32(_In_ intptr_t _FindHandle, _Out_ struct _wfinddata64i32_t * _FindData);
+                                                         ^
+c:\mingw\include\io.h:266:54: error: expected declaration specifiers or '...' before 'intptr_t'
+ _Check_return_ _CRTIMP int __cdecl _wfindnext64(_In_ intptr_t _FindHandle, _Out_ struct _wfinddata64_t * _FindData);
+                                                      ^
+c:\mingw\include\io.h:290:26: error: expected ',' or ';' before '_get_osfhandle'
+ _CRTIMP intptr_t __cdecl _get_osfhandle(_In_ int _FileHandle);
+                          ^
+c:\mingw\include\io.h:291:42: error: expected declaration specifiers or '...' before 'intptr_t'
+ _CRTIMP int __cdecl _open_osfhandle(_In_ intptr_t _OSFileHandle, _In_ int _Flags);
+                                          ^
+In file included from C:\Anaconda\include/pyconfig.h:296:0,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:245:43: error: expected ',' or ';' before 'fread'
+ _Check_return_opt_ _CRTIMP size_t __cdecl fread(_Out_bytecap_x_(_ElementSize*_Count) void * _DstBuf, _In_ size_t _ElementSize, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+c:\mingw\include\stdio.h:247:43: error: expected ',' or ';' before 'fread_s'
+ _Check_return_opt_ _CRTIMP size_t __cdecl fread_s(_Out_bytecap_x_(_ElementSize*_Count) void * _DstBuf, _In_ size_t _DstSize, _In_ size_t _ElementSize, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+c:\mingw\include\stdio.h:266:77: error: expected declaration specifiers or '...' before '__int64'
+ _Check_return_opt_ _CRTIMP int __cdecl _fseeki64(_Inout_ FILE * _File, _In_ __int64 _Offset, _In_ int _Origin);
+                                                                             ^
+c:\mingw\include\stdio.h:267:40: error: expected ',' or ';' before '_ftelli64'
+ _Check_return_ _CRTIMP __int64 __cdecl _ftelli64(_Inout_ FILE * _File);
+                                        ^
+c:\mingw\include\stdio.h:269:43: error: expected ',' or ';' before 'fwrite'
+ _Check_return_opt_ _CRTIMP size_t __cdecl fwrite(_In_count_x_(_Size*_Count) const void * _Str, _In_ size_t _Size, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+c:\mingw\include\stdio.h:317:133: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl setvbuf(_Inout_ FILE * _File, _Inout_opt_z_bytecap_(_Size) char * _Buf, _In_ int _Mode, _In_ size_t _Size);
+                                                                                                                                     ^
+c:\mingw\include\stdio.h:318:115: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snprintf_s(_Out_z_bytecap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, ...);
+                                                                                                                   ^
+c:\mingw\include\stdio.h:318:141: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snprintf_s(_Out_z_bytecap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, ...);
+                                                                                                                                             ^
+c:\mingw\include\stdio.h:321:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl sprintf_s(_Out_z_bytecap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_z_ _Printf_format_string_ const char * _Format, ...);
+                                                                                                                 ^
+c:\mingw\include\stdio.h:333:143: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snscanf_s) _CRTIMP int __cdecl _snscanf(_In_bytecount_(_MaxCount) _Pre_z_ const char * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_format_string_ const char * _Format, ...);
+                                                                                                                                               ^
+c:\mingw\include\stdio.h:334:147: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snscanf_s_l) _CRTIMP int __cdecl _snscanf_l(_In_bytecount_(_MaxCount) _Pre_z_ const char * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                                   ^
+c:\mingw\include\stdio.h:335:121: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snscanf_s(_In_bytecount_(_MaxCount) _Pre_z_ const char * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_s_format_string_ const char * _Format, ...);
+                                                                                                                         ^
+c:\mingw\include\stdio.h:336:123: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snscanf_s_l(_In_bytecount_(_MaxCount) _Pre_z_ const char * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_s_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                           ^
+c:\mingw\include\stdio.h:354:129: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(vsnprintf_s) _CRTIMP int __cdecl vsnprintf(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                                                                 ^
+c:\mingw\include\stdio.h:356:95: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl vsnprintf_s(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                               ^
+c:\mingw\include\stdio.h:356:117: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl vsnprintf_s(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                                                     ^
+c:\mingw\include\stdio.h:359:112: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnprintf_s(_Out_z_cap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                                                ^
+c:\mingw\include\stdio.h:359:138: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnprintf_s(_Out_z_cap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                                                                          ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:363:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_ARGLIST_EX(int, __RETURN_POLICY_SAME, _CRTIMP, _snprintf, _vsnprintf, _Pre_notnull_ _Post_maybez_ char, _Out_cap_(_Count) _Post_maybez_, char, _Dest, _In_ size_t, _Count, _In_z_ _Printf_format_string_ const char *, _Format)
+ ^
+c:\mingw\include\stdio.h:363:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_ARGLIST_EX(int, __RETURN_POLICY_SAME, _CRTIMP, _snprintf, _vsnprintf, _Pre_notnull_ _Post_maybez_ char, _Out_cap_(_Count) _Post_maybez_, char, _Dest, _In_ size_t, _Count, _In_z_ _Printf_format_string_ const char *, _Format)
+ ^
+In file included from C:\Anaconda\include/pyconfig.h:296:0,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:366:91: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP_ALTERNATIVE int __cdecl vsprintf_s(_Out_z_cap_(_SizeInBytes) char * _DstBuf, _In_ size_t _SizeInBytes, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                           ^
+c:\mingw\include\stdio.h:374:94: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _snprintf_c(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, ...);
+                                                                                              ^
+c:\mingw\include\stdio.h:375:94: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsnprintf_c(_Out_cap_(_MaxCount) char *_DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                              ^
+c:\mingw\include\stdio.h:379:92: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _sprintf_p(_Out_z_cap_(_MaxCount) char * _Dst, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, ...);
+                                                                                            ^
+c:\mingw\include\stdio.h:382:93: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsprintf_p(_Out_z_cap_(_MaxCount) char * _Dst, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, va_list _ArgList);
+                                                                                             ^
+c:\mingw\include\stdio.h:403:97: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _sprintf_p_l(_Out_z_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                 ^
+c:\mingw\include\stdio.h:404:112: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _sprintf_s_l(_Out_z_bytecap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                ^
+c:\mingw\include\stdio.h:406:98: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsprintf_p_l(_Out_z_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char* _Format, _In_opt_ _locale_t _Locale,  va_list _ArgList);
+                                                                                                  ^
+c:\mingw\include\stdio.h:407:109: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsprintf_s_l(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                             ^
+c:\mingw\include\stdio.h:414:133: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snprintf_s_l) _CRTIMP int __cdecl _snprintf_l(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                     ^
+c:\mingw\include\stdio.h:415:96: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _snprintf_c_l(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                ^
+c:\mingw\include\stdio.h:416:109: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snprintf_s_l(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                             ^
+c:\mingw\include\stdio.h:416:131: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snprintf_s_l(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                   ^
+c:\mingw\include\stdio.h:417:135: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_vsnprintf_s_l) _CRTIMP int __cdecl _vsnprintf_l(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                                       ^
+c:\mingw\include\stdio.h:418:97: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsnprintf_c_l(_Out_cap_(_MaxCount) char * _DstBuf, _In_ size_t _MaxCount, const char *, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                 ^
+c:\mingw\include\stdio.h:419:98: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsnprintf_s_l(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char* _Format,_In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                  ^
+c:\mingw\include\stdio.h:419:120: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vsnprintf_s_l(_Out_z_cap_(_DstSize) char * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const char* _Format,_In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                        ^
+c:\mingw\include\stdio.h:447:102: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP wchar_t * __cdecl _getws_s(_Out_z_cap_(_SizeInWords) wchar_t * _Str, _In_ size_t _SizeInWords);
+                                                                                                      ^
+c:\mingw\include\stdio.h:471:91: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP_ALTERNATIVE int __cdecl swprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _Dst, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t * _Format, ...);
+                                                                                           ^
+c:\mingw\include\stdio.h:475:92: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP_ALTERNATIVE int __cdecl vswprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _Dst, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t * _Format, va_list _ArgList);
+                                                                                            ^
+c:\mingw\include\stdio.h:479:102: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _swprintf_c(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t * _Format, ...);
+                                                                                                      ^
+c:\mingw\include\stdio.h:480:103: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vswprintf_c(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t * _Format, va_list _ArgList);
+                                                                                                       ^
+c:\mingw\include\stdio.h:482:115: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, ...);
+                                                                                                                   ^
+c:\mingw\include\stdio.h:482:141: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, ...);
+                                                                                                                                             ^
+c:\mingw\include\stdio.h:484:116: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnwprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, va_list _ArgList);
+                                                                                                                    ^
+c:\mingw\include\stdio.h:484:142: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnwprintf_s(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, va_list _ArgList);
+                                                                                                                                              ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:488:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_ARGLIST_EX(int, __RETURN_POLICY_SAME, _CRTIMP, _snwprintf, _vsnwprintf, _Pre_notnull_ _Post_maybez_ wchar_t, _Out_cap_(_Count) _Post_maybez_, wchar_t, _Dest, _In_ size_t, _Count, _In_z_ _Printf_format_string_ const wchar_t *, _Format)
+ ^
+c:\mingw\include\stdio.h:488:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_ARGLIST_EX(int, __RETURN_POLICY_SAME, _CRTIMP, _snwprintf, _vsnwprintf, _Pre_notnull_ _Post_maybez_ wchar_t, _Out_cap_(_Count) _Post_maybez_, wchar_t, _Dest, _In_ size_t, _Count, _In_z_ _Printf_format_string_ const wchar_t *, _Format)
+ ^
+In file included from C:\Anaconda\include/pyconfig.h:296:0,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:495:99: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _swprintf_p(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, ...);
+                                                                                                   ^
+c:\mingw\include\stdio.h:496:100: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vswprintf_p(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, va_list _ArgList);
+                                                                                                    ^
+c:\mingw\include\stdio.h:514:101: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _swprintf_c_l(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                     ^
+c:\mingw\include\stdio.h:515:101: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _swprintf_p_l(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                     ^
+c:\mingw\include\stdio.h:516:112: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _swprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                ^
+c:\mingw\include\stdio.h:517:102: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vswprintf_c_l(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                      ^
+c:\mingw\include\stdio.h:518:102: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP int __cdecl _vswprintf_p_l(_Out_z_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                      ^
+c:\mingw\include\stdio.h:519:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vswprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                 ^
+c:\mingw\include\stdio.h:525:138: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snwprintf_s_l) _CRTIMP int __cdecl _snwprintf_l(_Out_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                          ^
+c:\mingw\include\stdio.h:526:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                 ^
+c:\mingw\include\stdio.h:526:135: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                       ^
+c:\mingw\include\stdio.h:527:140: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_vsnwprintf_s_l) _CRTIMP int __cdecl _vsnwprintf_l(_Out_cap_(_MaxCount) wchar_t * _DstBuf, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                                            ^
+c:\mingw\include\stdio.h:528:114: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnwprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                  ^
+c:\mingw\include\stdio.h:528:136: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _vsnwprintf_s_l(_Out_z_cap_(_DstSize) wchar_t * _DstBuf, _In_ size_t _DstSize, _In_ size_t _MaxCount, _In_z_ _Printf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, va_list _ArgList);
+                                                                                                                                        ^
+In file included from c:\mingw\include\stdio.h:549:0,
+                 from C:\Anaconda\include/pyconfig.h:296,
+                 from helloworld.c:8:
+c:\mingw\include\swprintf.inl:36:49: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline int swprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, ...)
+                                                 ^
+c:\mingw\include\swprintf.inl:49:60: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline int __CRTDECL vswprintf(wchar_t * _String, size_t _Count, const wchar_t * _Format, va_list _Ap)
+                                                            ^
+c:\mingw\include\swprintf.inl:60:52: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline int _swprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, ...)
+                                                    ^
+c:\mingw\include\swprintf.inl:73:63: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline int __CRTDECL _vswprintf_l(wchar_t * _String, size_t _Count, const wchar_t * _Format, _locale_t _Plocinfo, va_list _Ap)
+                                                               ^
+In file included from C:\Anaconda\include/pyconfig.h:296:0,
+                 from helloworld.c:8:
+c:\mingw\include\stdio.h:588:144: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snwscanf_s) _CRTIMP int __cdecl _snwscanf(_In_count_(_MaxCount) _Pre_z_ const wchar_t * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_format_string_ const wchar_t * _Format, ...);
+                                                                                                                                                ^
+c:\mingw\include\stdio.h:589:148: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRT_INSECURE_DEPRECATE(_snwscanf_s_l) _CRTIMP int __cdecl _snwscanf_l(_In_count_(_MaxCount) _Pre_z_ const wchar_t * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                                                    ^
+c:\mingw\include\stdio.h:590:121: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwscanf_s(_In_count_(_MaxCount) _Pre_z_ const wchar_t * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_s_format_string_ const wchar_t * _Format, ...);
+                                                                                                                         ^
+c:\mingw\include\stdio.h:591:123: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP_ALTERNATIVE int __cdecl _snwscanf_s_l(_In_count_(_MaxCount) _Pre_z_ const wchar_t * _Src, _In_ size_t _MaxCount, _In_z_ _Scanf_s_format_string_ const wchar_t * _Format, _In_opt_ _locale_t _Locale, ...);
+                                                                                                                           ^
+c:\mingw\include\stdio.h:612:105: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wtmpnam_s(_Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords);
+                                                                                                         ^
+c:\mingw\include\stdio.h:680:43: error: expected ',' or ';' before '_fread_nolock'
+ _Check_return_opt_ _CRTIMP size_t __cdecl _fread_nolock(_Out_bytecap_x_(_ElementSize*_Count) void * _DstBuf, _In_ size_t _ElementSize, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+c:\mingw\include\stdio.h:681:43: error: expected ',' or ';' before '_fread_nolock_s'
+ _Check_return_opt_ _CRTIMP size_t __cdecl _fread_nolock_s(_Out_bytecap_x_(_ElementSize*_Count) void * _DstBuf, _In_ size_t _DstSize, _In_ size_t _ElementSize, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+c:\mingw\include\stdio.h:684:84: error: expected declaration specifiers or '...' before '__int64'
+ _Check_return_opt_ _CRTIMP int __cdecl _fseeki64_nolock(_Inout_ FILE * _File, _In_ __int64 _Offset, _In_ int _Origin);
+                                                                                    ^
+c:\mingw\include\stdio.h:685:40: error: expected ',' or ';' before '_ftelli64_nolock'
+ _Check_return_ _CRTIMP __int64 __cdecl _ftelli64_nolock(_Inout_ FILE * _File);
+                                        ^
+c:\mingw\include\stdio.h:686:43: error: expected ',' or ';' before '_fwrite_nolock'
+ _Check_return_opt_ _CRTIMP size_t __cdecl _fwrite_nolock(_In_bytecount_x_(_Size*_Count) const void * _DstBuf, _In_ size_t _Size, _In_ size_t _Count, _Inout_ FILE * _File);
+                                           ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:46:121: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP void *  __cdecl _memccpy( _Out_opt_bytecap_(_MaxCount) void * _Dst, _In_ const void * _Src, _In_ int _Val, _In_ size_t _MaxCount);
+                                                                                                                         ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:47:132: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP _CONST_RETURN void *  __cdecl memchr( _In_opt_bytecount_(_MaxCount) const void * _Buf , _In_ int _Val, _In_ size_t _MaxCount);
+                                                                                                                                    ^
+c:\mingw\include\string.h:48:146: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _memicmp(_In_opt_bytecount_(_Size) const void * _Buf1, _In_opt_bytecount_(_Size) const void * _Buf2, _In_ size_t _Size);
+                                                                                                                                                  ^
+c:\mingw\include\string.h:49:148: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _memicmp_l(_In_opt_bytecount_(_Size) const void * _Buf1, _In_opt_bytecount_(_Size) const void * _Buf2, _In_ size_t _Size, _In_opt_ _locale_t _Locale);
+                                                                                                                                                    ^
+c:\mingw\include\string.h:50:144: error: expected declaration specifiers or '...' before 'size_t'
+         _Check_return_ int     __cdecl memcmp(_In_opt_bytecount_(_Size) const void * _Buf1, _In_opt_bytecount_(_Size) const void * _Buf2, _In_ size_t _Size);
+                                                                                                                                                ^
+c:\mingw\include\string.h:51:166: error: expected declaration specifiers or '...' before 'size_t'
+         _CRT_INSECURE_DEPRECATE_MEMORY(memcpy_s) void *  __cdecl memcpy(_Out_opt_bytecapcount_(_Size) void * _Dst, _In_opt_bytecount_(_Size) const void * _Src, _In_ size_t _Size);
+                                                                                                                                                                      ^
+c:\mingw\include\string.h:88:95: error: expected declaration specifiers or '...' before 'size_t'
+         void *  __cdecl memset(_Out_opt_bytecapcount_(_Size) void * _Dst, _In_ int _Val, _In_ size_t _Size);
+                                                                                               ^
+c:\mingw\include\string.h:98:108: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _strset_s(_Inout_z_cap_(_DstSize) char * _Dst, _In_ size_t _DstSize, _In_ int _Value);
+                                                                                                            ^
+c:\mingw\include\string.h:112:40: error: expected ',' or ';' before 'strlen'
+         _Check_return_ size_t  __cdecl strlen(_In_z_ const char * _Str);
+                                        ^
+c:\mingw\include\string.h:113:40: error: expected ',' or ';' before 'strnlen'
+ _Check_return_ _CRTIMP size_t  __cdecl strnlen(_In_z_ const char * _Str, _In_ size_t _MaxCount);
+                                        ^
+c:\mingw\include\string.h:115:32: error: static declaration of 'size_t' follows non-static declaration
+ _Check_return_ static __inline size_t  __CRTDECL strnlen_s(_In_z_  const char * _Str, _In_ size_t _MaxCount)
+                                ^
+c:\mingw\include\string.h:113:24: note: previous declaration of 'size_t' was here
+ _Check_return_ _CRTIMP size_t  __cdecl strnlen(_In_z_ const char * _Str, _In_ size_t _MaxCount);
+                        ^
+c:\mingw\include\string.h:115:50: error: expected ',' or ';' before 'strnlen_s'
+ _Check_return_ static __inline size_t  __CRTDECL strnlen_s(_In_z_  const char * _Str, _In_ size_t _MaxCount)
+                                                  ^
+c:\mingw\include\string.h:127:168: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP _CRT_INSECURE_DEPRECATE_MEMORY(memmove_s) void *  __cdecl memmove(_Out_opt_bytecapcount_(_Size) void * _Dst, _In_opt_bytecount_(_Size) const void * _Src, _In_ size_t _Size);
+                                                                                                                                                                        ^
+c:\mingw\include\string.h:149:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strncoll  (_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount);
+                                                                                                               ^
+c:\mingw\include\string.h:150:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strncoll_l(_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                               ^
+c:\mingw\include\string.h:151:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strnicoll (_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount);
+                                                                                                               ^
+c:\mingw\include\string.h:152:112: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strnicoll_l(_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                ^
+c:\mingw\include\string.h:153:24: error: non-static declaration of 'size_t' follows static declaration
+ _Check_return_ _CRTIMP size_t  __cdecl strcspn(_In_z_  const char * _Str, _In_z_  const char * _Control);
+                        ^
+c:\mingw\include\string.h:115:32: note: previous declaration of 'size_t' was here
+ _Check_return_ static __inline size_t  __CRTDECL strnlen_s(_In_z_  const char * _Str, _In_ size_t _MaxCount)
+                                ^
+c:\mingw\include\string.h:153:40: error: expected ',' or ';' before 'strcspn'
+ _Check_return_ _CRTIMP size_t  __cdecl strcspn(_In_z_  const char * _Str, _In_z_  const char * _Control);
+                                        ^
+c:\mingw\include\string.h:155:100: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strerror_s(_Out_z_cap_(_SizeInBytes) char * _Buf, _In_ size_t _SizeInBytes, _In_opt_z_ const char * _ErrMsg);
+                                                                                                    ^
+c:\mingw\include\string.h:159:99: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl strerror_s(_Out_z_cap_(_SizeInBytes) char * _Buf, _In_ size_t _SizeInBytes, _In_ int _ErrNum);
+                                                                                                   ^
+c:\mingw\include\string.h:162:93: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strlwr_s(_Inout_z_cap_(_Size) char * _Str, _In_ size_t _Size);
+                                                                                             ^
+c:\mingw\include\string.h:165:95: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strlwr_s_l(_Inout_z_cap_(_Size) char * _Str, _In_ size_t _Size, _In_opt_ _locale_t _Locale);
+                                                                                               ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:175:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(char *, __RETURN_POLICY_DST, _CRTIMP, strncat, strncat_s, _Deref_inout_z_cap_c_(_Size) char, _Inout_z_cap_(_Count), char, _Dest, _In_z_ const char *, _Source, _In_ size_t, _Count)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:180:107: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl strncmp(_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount);
+                                                                                                           ^
+c:\mingw\include\string.h:182:109: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strnicmp(_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount);
+                                                                                                             ^
+c:\mingw\include\string.h:183:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int     __cdecl _strnicmp_l(_In_z_ const char * _Str1, _In_z_ const char * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                               ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:188:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(char *, __RETURN_POLICY_DST, _CRTIMP_NOIA64, strncpy, strncpy_s, _Deref_out_z_cap_c_(_Size) char, _Out_cap_(_Count) _Post_maybez_, char, _Dest, _In_z_ const char *, _Source, _In_ size_t, _Count)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:189:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _strnset_s(_Inout_z_cap_(_SizeInBytes) char * _Str, _In_ size_t _SizeInBytes, _In_ int _Val, _In_ size_t _MaxCount);
+                                                                                                                 ^
+c:\mingw\include\string.h:189:154: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _strnset_s(_Inout_z_cap_(_SizeInBytes) char * _Str, _In_ size_t _SizeInBytes, _In_ int _Val, _In_ size_t _MaxCount);
+                                                                                                                                                          ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:191:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(char *, __RETURN_POLICY_DST, _CRTIMP, _strnset, _strnset_s, _Deref_inout_z_cap_c_(_Size) char, _Inout_z_cap_(_Count), char, _Dest, _In_ int, _Val, _In_ size_t, _Count)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:195:40: error: expected ',' or ';' before 'strspn'
+ _Check_return_ _CRTIMP size_t  __cdecl strspn(_In_z_ const char * _Str, _In_z_ const char * _Control);
+                                        ^
+c:\mingw\include\string.h:201:93: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strupr_s(_Inout_z_cap_(_Size) char * _Str, _In_ size_t _Size);
+                                                                                             ^
+c:\mingw\include\string.h:204:95: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strupr_s_l(_Inout_z_cap_(_Size) char * _Str, _In_ size_t _Size, _locale_t _Locale);
+                                                                                               ^
+c:\mingw\include\string.h:207:44: error: expected ',' or ';' before 'strxfrm'
+ _Check_return_opt_ _CRTIMP size_t  __cdecl strxfrm (_Out_opt_cap_(_MaxCount) _Post_maybez_ char * _Dst, _In_z_ const char * _Src, _In_ size_t _MaxCount);
+                                            ^
+c:\mingw\include\string.h:208:44: error: expected ',' or ';' before '_strxfrm_l'
+ _Check_return_opt_ _CRTIMP size_t  __cdecl _strxfrm_l(_Out_opt_cap_(_MaxCount) _Post_maybez_ char * _Dst, _In_z_ const char * _Src, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                            ^
+c:\mingw\include\string.h:284:39: error: expected ',' or ';' before 'wcscspn'
+ _Check_return_ _CRTIMP size_t __cdecl wcscspn(_In_z_ const wchar_t * _Str, _In_z_ const wchar_t * _Control);
+                                       ^
+c:\mingw\include\string.h:285:39: error: expected ',' or ';' before 'wcslen'
+ _Check_return_ _CRTIMP size_t __cdecl wcslen(_In_z_ const wchar_t * _Str);
+                                       ^
+c:\mingw\include\string.h:286:39: error: expected ',' or ';' before 'wcsnlen'
+ _Check_return_ _CRTIMP size_t __cdecl wcsnlen(_In_z_ const wchar_t * _Src, _In_ size_t _MaxCount);
+                                       ^
+c:\mingw\include\string.h:288:32: error: static declaration of 'size_t' follows non-static declaration
+ _Check_return_ static __inline size_t __CRTDECL wcsnlen_s(_In_z_ const wchar_t * _Src, _In_ size_t _MaxCount)
+                                ^
+c:\mingw\include\string.h:153:24: note: previous declaration of 'size_t' was here
+ _Check_return_ _CRTIMP size_t  __cdecl strcspn(_In_z_  const char * _Str, _In_z_  const char * _Control);
+                        ^
+c:\mingw\include\string.h:288:49: error: expected ',' or ';' before 'wcsnlen_s'
+ _Check_return_ static __inline size_t __CRTDECL wcsnlen_s(_In_z_ const wchar_t * _Src, _In_ size_t _MaxCount)
+                                                 ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:299:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(wchar_t *, __RETURN_POLICY_DST, _CRTIMP, wcsncat, wcsncat_s, _Deref_inout_z_cap_c_(_Size) wchar_t, _Inout_z_cap_(_Count), wchar_t, _Dest, _In_z_ const wchar_t *, _Source, _In_ size_t, _Count)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:301:109: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl wcsncmp(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount);
+                                                                                                             ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:306:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(wchar_t *, __RETURN_POLICY_DST, _CRTIMP, wcsncpy, wcsncpy_s, _Pre_notnull_ _Post_maybez_ wchar_t, _Out_cap_(_Count) _Post_maybez_, wchar_t, _Dest, _In_z_ const wchar_t *, _Source, _In_ size_t, _Count)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:309:24: error: non-static declaration of 'size_t' follows static declaration
+ _Check_return_ _CRTIMP size_t __cdecl wcsspn(_In_z_ const wchar_t * _Str, _In_z_ const wchar_t * _Control);
+                        ^
+c:\mingw\include\string.h:288:32: note: previous declaration of 'size_t' was here
+ _Check_return_ static __inline size_t __CRTDECL wcsnlen_s(_In_z_ const wchar_t * _Src, _In_ size_t _MaxCount)
+                                ^
+c:\mingw\include\string.h:309:39: error: expected ',' or ';' before 'wcsspn'
+ _Check_return_ _CRTIMP size_t __cdecl wcsspn(_In_z_ const wchar_t * _Str, _In_z_ const wchar_t * _Control);
+                                       ^
+c:\mingw\include\string.h:316:107: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcserror_s(_Out_opt_z_cap_(_SizeInWords) wchar_t * _Buf, _In_ size_t _SizeInWords, _In_ int _ErrNum);
+                                                                                                           ^
+c:\mingw\include\string.h:319:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl __wcserror_s(_Out_opt_z_cap_(_SizeInWords) wchar_t * _Buffer, _In_ size_t _SizeInWords, _In_z_ const wchar_t * _ErrMsg);
+                                                                                                               ^
+c:\mingw\include\string.h:324:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsnicmp(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount);
+                                                                                                               ^
+c:\mingw\include\string.h:325:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsnicmp_l(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                 ^
+c:\mingw\include\string.h:326:116: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _wcsnset_s(_Inout_z_cap_(_SizeInWords) wchar_t * _Dst, _In_ size_t _SizeInWords, _In_ wchar_t _Val, _In_ size_t _MaxCount);
+                                                                                                                    ^
+c:\mingw\include\string.h:326:161: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _wcsnset_s(_Inout_z_cap_(_SizeInWords) wchar_t * _Dst, _In_ size_t _SizeInWords, _In_ wchar_t _Val, _In_ size_t _MaxCount);
+                                                                                                                                                                 ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\string.h:328:1: error: expected declaration specifiers or '...' before 'size_t'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(wchar_t *, __RETURN_POLICY_DST, _CRTIMP, _wcsnset, _wcsnset_s, _Deref_inout_z_cap_c_(_Size) wchar_t, _Inout_z_cap_(_MaxCount), wchar_t, _Str, wchar_t, _Val, _In_ size_t, _MaxCount)
+ ^
+In file included from C:\Anaconda\include/Python.h:38:0,
+                 from helloworld.c:16:
+c:\mingw\include\string.h:330:115: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _wcsset_s(_Inout_z_cap_(_SizeInWords) wchar_t * _Dst, _In_ size_t _SizeInWords, _In_ wchar_t _Value);
+                                                                                                                   ^
+c:\mingw\include\string.h:334:103: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcslwr_s(_Inout_z_cap_(_SizeInWords) wchar_t * _Str, _In_ size_t _SizeInWords);
+                                                                                                       ^
+c:\mingw\include\string.h:337:105: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcslwr_s_l(_Inout_z_cap_(_SizeInWords) wchar_t * _Str, _In_ size_t _SizeInWords, _In_opt_ _locale_t _Locale);
+                                                                                                         ^
+c:\mingw\include\string.h:340:96: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcsupr_s(_Inout_z_cap_(_Size) wchar_t * _Str, _In_ size_t _Size);
+                                                                                                ^
+c:\mingw\include\string.h:343:98: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcsupr_s_l(_Inout_z_cap_(_Size) wchar_t * _Str, _In_ size_t _Size, _In_opt_ _locale_t _Locale);
+                                                                                                  ^
+c:\mingw\include\string.h:346:43: error: expected ',' or ';' before 'wcsxfrm'
+ _Check_return_opt_ _CRTIMP size_t __cdecl wcsxfrm(_Out_opt_cap_(_MaxCount) _Post_maybez_ wchar_t * _Dst, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCount);
+                                           ^
+c:\mingw\include\string.h:347:43: error: expected ',' or ';' before '_wcsxfrm_l'
+ _Check_return_opt_ _CRTIMP size_t __cdecl _wcsxfrm_l(_Out_opt_cap_(_MaxCount) _Post_maybez_ wchar_t * _Dst, _In_z_ const wchar_t *_Src, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                           ^
+c:\mingw\include\string.h:352:111: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsncoll(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount);
+                                                                                                               ^
+c:\mingw\include\string.h:353:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsncoll_l(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                 ^
+c:\mingw\include\string.h:354:112: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsnicoll(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount);
+                                                                                                                ^
+c:\mingw\include\string.h:355:114: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int __cdecl _wcsnicoll_l(_In_z_ const wchar_t * _Str1, _In_z_ const wchar_t * _Str2, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                  ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:228:117: error: unknown type name 'uintptr_t'
+ typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t); 
+                                                                                                                     ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:231:44: error: expected ',' or ';' before '_set_invalid_parameter_handler'
+ _CRTIMP _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(_In_opt_ _invalid_parameter_handler _Handler);
+                                            ^
+c:\mingw\include\stdlib.h:232:44: error: expected ',' or ';' before '_get_invalid_parameter_handler'
+ _CRTIMP _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
+                                            ^
+c:\mingw\include\stdlib.h:367:28: error: expected ',' or ';' before '_abs64'
+         __int64    __cdecl _abs64(__int64);
+                            ^
+c:\mingw\include\stdlib.h:417:14: error: expected declaration specifiers or '...' before 'size_t'
+         _In_ size_t _NumOfElements, _In_ size_t _SizeOfElements,
+              ^
+c:\mingw\include\stdlib.h:417:42: error: expected declaration specifiers or '...' before 'size_t'
+         _In_ size_t _NumOfElements, _In_ size_t _SizeOfElements,
+                                          ^
+c:\mingw\include\stdlib.h:426:7: error: expected declaration specifiers or '...' before 'size_t'
+  _In_ size_t _NumOfElements, _In_ size_t _SizeOfElements, 
+       ^
+c:\mingw\include\stdlib.h:426:35: error: expected declaration specifiers or '...' before 'size_t'
+  _In_ size_t _NumOfElements, _In_ size_t _SizeOfElements, 
+                                   ^
+c:\mingw\include\stdlib.h:431:33: error: conflicting types for '__int64'
+         _Check_return_ unsigned __int64 __cdecl _byteswap_uint64(_In_ unsigned __int64 _Int64);
+                                 ^
+c:\mingw\include\stdlib.h:367:9: note: previous declaration of '__int64' was here
+         __int64    __cdecl _abs64(__int64);
+         ^
+c:\mingw\include\stdlib.h:431:49: error: expected ',' or ';' before '_byteswap_uint64'
+         _Check_return_ unsigned __int64 __cdecl _byteswap_uint64(_In_ unsigned __int64 _Int64);
+                                                 ^
+c:\mingw\include\stdlib.h:435:59: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl getenv_s(_Out_ size_t * _ReturnSize, _Out_opt_z_cap_(_DstSize) char * _DstBuf, _In_ rsize_t _DstSize, _In_z_ const char * _VarName);
+                                                           ^
+c:\mingw\include\stdlib.h:443:132: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _dupenv_s(_Out_ _Deref_post_opt_z_cap_(*_PBufferSizeInBytes) char **_PBuffer, _Out_opt_ size_t * _PBufferSizeInBytes, _In_z_ const char * _VarName);
+                                                                                                                                    ^
+c:\mingw\include\stdlib.h:449:109: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _itoa_s(_In_ int _Value, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                                                                             ^
+c:\mingw\include\stdlib.h:452:59: error: expected declaration specifiers or '...' before '__int64'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _i64toa_s(_In_ __int64 _Val, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                           ^
+c:\mingw\include\stdlib.h:452:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _i64toa_s(_In_ __int64 _Val, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                                                                                 ^
+c:\mingw\include\stdlib.h:453:72: error: expected declaration specifiers or '...' before '__int64'
+ _CRTIMP _CRT_INSECURE_DEPRECATE(_i64toa_s) char * __cdecl _i64toa(_In_ __int64 _Val, _Pre_notnull_ _Post_z_ char * _DstBuf, _In_ int _Radix);
+                                                                        ^
+c:\mingw\include\stdlib.h:454:77: error: expected ';', ',' or ')' before '_Val'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _ui64toa_s(_In_ unsigned __int64 _Val, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                                             ^
+c:\mingw\include\stdlib.h:455:91: error: expected ';', ',' or ')' before '_Val'
+ _CRTIMP _CRT_INSECURE_DEPRECATE(_ui64toa_s) char * __cdecl _ui64toa(_In_ unsigned __int64 _Val, _Pre_notnull_ _Post_z_ char * _DstBuf, _In_ int _Radix);
+                                                                                           ^
+c:\mingw\include\stdlib.h:456:40: error: expected ',' or ';' before '_atoi64'
+ _Check_return_ _CRTIMP __int64 __cdecl _atoi64(_In_z_ const char * _String);
+                                        ^
+c:\mingw\include\stdlib.h:457:40: error: expected ',' or ';' before '_atoi64_l'
+ _Check_return_ _CRTIMP __int64 __cdecl _atoi64_l(_In_z_ const char * _String, _In_opt_ _locale_t _Locale);
+                                        ^
+c:\mingw\include\stdlib.h:458:40: error: expected ',' or ';' before '_strtoi64'
+ _Check_return_ _CRTIMP __int64 __cdecl _strtoi64(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix);
+                                        ^
+c:\mingw\include\stdlib.h:459:40: error: expected ',' or ';' before '_strtoi64_l'
+ _Check_return_ _CRTIMP __int64 __cdecl _strtoi64_l(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                                        ^
+c:\mingw\include\stdlib.h:460:33: error: conflicting types for '__int64'
+ _Check_return_ _CRTIMP unsigned __int64 __cdecl _strtoui64(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix);
+                                 ^
+c:\mingw\include\stdlib.h:459:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64 __cdecl _strtoi64_l(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:460:49: error: expected ',' or ';' before '_strtoui64'
+ _Check_return_ _CRTIMP unsigned __int64 __cdecl _strtoui64(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix);
+                                                 ^
+c:\mingw\include\stdlib.h:461:33: error: conflicting types for '__int64'
+ _Check_return_ _CRTIMP unsigned __int64 __cdecl _strtoui64_l(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int  _Radix, _In_opt_ _locale_t _Locale);
+                                 ^
+c:\mingw\include\stdlib.h:459:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64 __cdecl _strtoi64_l(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:461:49: error: expected ',' or ';' before '_strtoui64_l'
+ _Check_return_ _CRTIMP unsigned __int64 __cdecl _strtoui64_l(_In_z_ const char * _String, _Out_opt_ _Deref_post_z_ char ** _EndPtr, _In_ int  _Radix, _In_opt_ _locale_t _Locale);
+                                                 ^
+c:\mingw\include\stdlib.h:485:108: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _ltoa_s(_In_ long _Val, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                                                                            ^
+c:\mingw\include\stdlib.h:488:110: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int    __cdecl mblen(_In_opt_bytecount_(_MaxCount) _Pre_opt_z_ const char * _Ch, _In_ size_t _MaxCount);
+                                                                                                              ^
+c:\mingw\include\stdlib.h:489:113: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP int    __cdecl _mblen_l(_In_opt_bytecount_(_MaxCount) _Pre_opt_z_ const char * _Ch, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                 ^
+c:\mingw\include\stdlib.h:490:39: error: expected ',' or ';' before '_mbstrlen'
+ _Check_return_ _CRTIMP size_t __cdecl _mbstrlen(_In_z_ const char * _Str);
+                                       ^
+c:\mingw\include\stdlib.h:491:39: error: expected ',' or ';' before '_mbstrlen_l'
+ _Check_return_ _CRTIMP size_t __cdecl _mbstrlen_l(_In_z_ const char *_Str, _In_opt_ _locale_t _Locale);
+                                       ^
+c:\mingw\include\stdlib.h:492:39: error: expected ',' or ';' before '_mbstrnlen'
+ _Check_return_ _CRTIMP size_t __cdecl _mbstrnlen(_In_z_ const char *_Str, _In_ size_t _MaxCount);
+                                       ^
+c:\mingw\include\stdlib.h:493:39: error: expected ',' or ';' before '_mbstrnlen_l'
+ _Check_return_ _CRTIMP size_t __cdecl _mbstrnlen_l(_In_z_ const char *_Str, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                       ^
+c:\mingw\include\stdlib.h:494:146: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP int    __cdecl mbtowc(_Pre_notnull_ _Post_z_ wchar_t * _DstCh, _In_opt_bytecount_(_SrcSizeInBytes) _Pre_opt_z_ const char * _SrcCh, _In_ size_t _SrcSizeInBytes);
+                                                                                                                                                  ^
+c:\mingw\include\stdlib.h:495:149: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP int    __cdecl _mbtowc_l(_Pre_notnull_ _Post_z_ wchar_t * _DstCh, _In_opt_bytecount_(_SrcSizeInBytes) _Pre_opt_z_ const char * _SrcCh, _In_ size_t _SrcSizeInBytes, _In_opt_ _locale_t _Locale);
+                                                                                                                                                     ^
+c:\mingw\include\stdlib.h:496:65: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl mbstowcs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount );
+                                                                 ^
+c:\mingw\include\stdlib.h:496:184: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl mbstowcs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount );
+                                                                                                                                                                                        ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:496:262: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl mbstowcs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount );
+                                                                                                                                                                                                                                                                      ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdlib.h:498:1: error: expected ',' or ';' before 'mbstowcs'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(_CRTIMP, mbstowcs, _Out_opt_z_cap_(_MaxCount), wchar_t, _Dest, _In_z_ const char *, _Source, _In_ size_t, _MaxCount)
+ ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:500:68: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _mbstowcs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                    ^
+c:\mingw\include\stdlib.h:500:187: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _mbstowcs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                                                                                           ^
+c:\mingw\include\stdlib.h:500:265: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _mbstowcs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_cap_post_count_(_SizeInWords, *_PtNumOfCharConverted) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_count_(_MaxCount) _Pre_z_ const char * _SrcBuf, _In_ size_t _MaxCount, _In_opt_ _locale_t _Locale);
+                                                                                                                                                                                                                                                                         ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdlib.h:502:1: error: expected ',' or ';' before '_mbstowcs_l'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE_EX(_CRTIMP, _mbstowcs_l, _mbstowcs_s_l, _Out_opt_z_cap_(_Size) wchar_t, _Out_z_cap_(_MaxCount), wchar_t, _Dest, _In_z_ const char *, _Source, _In_ size_t, _MaxCount, _In_opt_ _locale_t, _Locale)
+ ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:522:118: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_opt_ _CRTIMP errno_t __cdecl _ultoa_s(_In_ unsigned long _Val, _Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ int _Radix);
+                                                                                                                      ^
+c:\mingw\include\stdlib.h:530:141: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wctomb_s_l(_Out_opt_ int * _SizeConverted, _Out_opt_z_bytecap_(_SizeInBytes) char * _MbCh, _In_ size_t _SizeInBytes, _In_ wchar_t _WCh, _In_opt_ _locale_t _Locale);
+                                                                                                                                             ^
+c:\mingw\include\stdlib.h:531:65: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl wcstombs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes);
+                                                                 ^
+c:\mingw\include\stdlib.h:531:189: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl wcstombs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes);
+                                                                                                                                                                                             ^
+c:\mingw\include\stdlib.h:531:247: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl wcstombs_s(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes);
+                                                                                                                                                                                                                                                       ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdlib.h:533:1: error: expected ',' or ';' before 'wcstombs'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(_CRTIMP, wcstombs, _Out_opt_z_cap_(_MaxCount), char, _Dest, _In_z_ const wchar_t *, _Source, _In_ size_t, _MaxCount)
+ ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:534:68: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcstombs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes, _In_opt_ _locale_t _Locale);
+                                                                    ^
+c:\mingw\include\stdlib.h:534:192: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcstombs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes, _In_opt_ _locale_t _Locale);
+                                                                                                                                                                                                ^
+c:\mingw\include\stdlib.h:534:250: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wcstombs_s_l(_Out_opt_ size_t * _PtNumOfCharConverted, _Out_opt_bytecap_post_bytecount_(_DstSizeInBytes, *_PtNumOfCharConverted) char * _Dst, _In_ size_t _DstSizeInBytes, _In_z_ const wchar_t * _Src, _In_ size_t _MaxCountInBytes, _In_opt_ _locale_t _Locale);
+                                                                                                                                                                                                                                                          ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\stdlib.h:536:1: error: expected ',' or ';' before '_wcstombs_l'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE_EX(_CRTIMP, _wcstombs_l, _wcstombs_s_l, _Out_opt_z_cap_(_Size) char, _Out_z_cap_(_MaxCount), char, _Dest, _In_z_ const wchar_t *, _Source, _In_ size_t, _MaxCount, _In_opt_ _locale_t, _Locale)
+ ^
+In file included from C:\Anaconda\include/Python.h:42:0,
+                 from helloworld.c:16:
+c:\mingw\include\stdlib.h:598:132: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRT_JIT_INTRINSIC _CRTNOALIAS _CRTRESTRICT    void * __cdecl calloc(_In_ size_t _Count, _In_ size_t _Size);
+                                                                                                                                    ^
+c:\mingw\include\stdlib.h:598:152: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRT_JIT_INTRINSIC _CRTNOALIAS _CRTRESTRICT    void * __cdecl calloc(_In_ size_t _Count, _In_ size_t _Size);
+                                                                                                                                                        ^
+c:\mingw\include\stdlib.h:600:149: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRT_JIT_INTRINSIC _CRTNOALIAS _CRTRESTRICT                              void * __cdecl malloc(_In_ size_t _Size);
+                                                                                                                                                     ^
+c:\mingw\include\stdlib.h:602:166: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                           void * __cdecl realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize);
+                                                                                                                                                                      ^
+c:\mingw\include\stdlib.h:604:170: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size);
+                                                                                                                                                                          ^
+c:\mingw\include\stdlib.h:604:190: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size);
+                                                                                                                                                                                              ^
+c:\mingw\include\stdlib.h:606:139: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_malloc(_In_ size_t _Size, _In_ size_t _Alignment);
+                                                                                                                                           ^
+c:\mingw\include\stdlib.h:606:158: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_malloc(_In_ size_t _Size, _In_ size_t _Alignment);
+                                                                                                                                                              ^
+c:\mingw\include\stdlib.h:607:146: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_malloc(_In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                  ^
+c:\mingw\include\stdlib.h:607:165: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_malloc(_In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                     ^
+c:\mingw\include\stdlib.h:607:189: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_malloc(_In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                             ^
+c:\mingw\include\stdlib.h:609:178: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize, _In_ size_t _Alignment);
+                                                                                                                                                                                  ^
+c:\mingw\include\stdlib.h:609:200: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize, _In_ size_t _Alignment);
+                                                                                                                                                                                                        ^
+c:\mingw\include\stdlib.h:611:178: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment);
+                                                                                                                                                                                  ^
+c:\mingw\include\stdlib.h:611:198: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment);
+                                                                                                                                                                                                      ^
+c:\mingw\include\stdlib.h:611:217: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment);
+                                                                                                                                                                                                                         ^
+c:\mingw\include\stdlib.h:613:185: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                         ^
+c:\mingw\include\stdlib.h:613:207: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                                               ^
+c:\mingw\include\stdlib.h:613:231: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_(_NewSize) _CRTIMP _CRTNOALIAS _CRTRESTRICT                              void * __cdecl _aligned_offset_realloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _NewSize, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                                                                       ^
+c:\mingw\include\stdlib.h:615:185: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_offset_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                         ^
+c:\mingw\include\stdlib.h:615:205: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_offset_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                                             ^
+c:\mingw\include\stdlib.h:615:224: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_offset_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                                                                ^
+c:\mingw\include\stdlib.h:615:248: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _Ret_opt_bytecap_x_(_Count*_Size) _CRTIMP _CRTNOALIAS _CRTRESTRICT                       void * __cdecl _aligned_offset_recalloc(_Post_ptr_invalid_ void * _Memory, _In_ size_t _Count, _In_ size_t _Size, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                                                                                                                                                                                        ^
+c:\mingw\include\stdlib.h:616:88: error: expected ',' or ';' before '_aligned_msize'
+ _Check_return_ _CRTIMP                                                  size_t __cdecl _aligned_msize(_Pre_notnull_ void * _Memory, _In_ size_t _Alignment, _In_ size_t _Offset);
+                                                                                        ^
+c:\mingw\include\stdlib.h:643:118: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _itow_s (_In_ int _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                                                                                      ^
+c:\mingw\include\stdlib.h:646:119: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _ltow_s (_In_ long _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                                                                                       ^
+c:\mingw\include\stdlib.h:649:129: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _ultow_s (_In_ unsigned long _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                                                                                                 ^
+c:\mingw\include\stdlib.h:659:61: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wgetenv_s(_Out_ size_t * _ReturnSize, _Out_opt_z_cap_(_DstSizeInWords) wchar_t * _DstBuf, _In_ size_t _DstSizeInWords, _In_z_ const wchar_t * _VarName);
+                                                             ^
+c:\mingw\include\stdlib.h:659:140: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wgetenv_s(_Out_ size_t * _ReturnSize, _Out_opt_z_cap_(_DstSizeInWords) wchar_t * _DstBuf, _In_ size_t _DstSizeInWords, _In_z_ const wchar_t * _VarName);
+                                                                                                                                            ^
+c:\mingw\include\stdlib.h:667:134: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _wdupenv_s(_Out_ _Deref_post_opt_z_cap_(*_BufferSizeInWords) wchar_t **_Buffer, _Out_opt_ size_t *_BufferSizeInWords, _In_z_ const wchar_t *_VarName);
+                                                                                                                                      ^
+c:\mingw\include\stdlib.h:684:59: error: expected declaration specifiers or '...' before '__int64'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _i64tow_s(_In_ __int64 _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                           ^
+c:\mingw\include\stdlib.h:684:123: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _i64tow_s(_In_ __int64 _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                                                                                           ^
+c:\mingw\include\stdlib.h:685:75: error: expected declaration specifiers or '...' before '__int64'
+ _CRTIMP _CRT_INSECURE_DEPRECATE(_i64tow_s) wchar_t * __cdecl _i64tow(_In_ __int64 _Val, _Pre_notnull_ _Post_z_ wchar_t * _DstBuf, _In_ int _Radix);
+                                                                           ^
+c:\mingw\include\stdlib.h:686:77: error: expected ';', ',' or ')' before '_Val'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _ui64tow_s(_In_ unsigned __int64 _Val, _Out_z_cap_(_SizeInWords) wchar_t * _DstBuf, _In_ size_t _SizeInWords, _In_ int _Radix);
+                                                                             ^
+c:\mingw\include\stdlib.h:687:94: error: expected ';', ',' or ')' before '_Val'
+ _CRTIMP _CRT_INSECURE_DEPRECATE(_ui64tow_s) wchar_t * __cdecl _ui64tow(_In_ unsigned __int64 _Val, _Pre_notnull_ _Post_z_ wchar_t * _DstBuf, _In_ int _Radix);
+                                                                                              ^
+c:\mingw\include\stdlib.h:688:42: error: expected ',' or ';' before '_wtoi64'
+ _Check_return_ _CRTIMP __int64   __cdecl _wtoi64(_In_z_ const wchar_t *_Str);
+                                          ^
+c:\mingw\include\stdlib.h:689:42: error: expected ',' or ';' before '_wtoi64_l'
+ _Check_return_ _CRTIMP __int64   __cdecl _wtoi64_l(_In_z_ const wchar_t *_Str, _In_opt_ _locale_t _Locale);
+                                          ^
+c:\mingw\include\stdlib.h:690:42: error: expected ',' or ';' before '_wcstoi64'
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix);
+                                          ^
+c:\mingw\include\stdlib.h:691:42: error: expected ',' or ';' before '_wcstoi64_l'
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64_l(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                                          ^
+c:\mingw\include\stdlib.h:692:33: error: conflicting types for '__int64'
+ _Check_return_ _CRTIMP unsigned __int64  __cdecl _wcstoui64(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix);
+                                 ^
+c:\mingw\include\stdlib.h:691:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64_l(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:692:50: error: expected ',' or ';' before '_wcstoui64'
+ _Check_return_ _CRTIMP unsigned __int64  __cdecl _wcstoui64(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix);
+                                                  ^
+c:\mingw\include\stdlib.h:693:33: error: conflicting types for '__int64'
+ _Check_return_ _CRTIMP unsigned __int64  __cdecl _wcstoui64_l(_In_z_ const wchar_t *_Str , _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                                 ^
+c:\mingw\include\stdlib.h:691:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64_l(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:693:50: error: expected ',' or ';' before '_wcstoui64_l'
+ _Check_return_ _CRTIMP unsigned __int64  __cdecl _wcstoui64_l(_In_z_ const wchar_t *_Str , _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                                                  ^
+c:\mingw\include\stdlib.h:713:129: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP char * __cdecl _fullpath(_Out_opt_z_cap_(_SizeInBytes) char * _FullPath, _In_z_ const char * _Path, _In_ size_t _SizeInBytes);
+                                                                                                                                 ^
+c:\mingw\include\stdlib.h:721:92: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _ecvt_s(_Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ double _Val, _In_ int _NumOfDights, _Out_ int * _PtDec, _Out_ int * _PtSign);
+                                                                                            ^
+c:\mingw\include\stdlib.h:724:92: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _fcvt_s(_Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ double _Val, _In_ int _NumOfDec, _Out_ int * _PtDec, _Out_ int * _PtSign);
+                                                                                            ^
+c:\mingw\include\stdlib.h:727:73: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _gcvt_s(_Out_z_cap_(_Size) char * _DstBuf, _In_ size_t _Size, _In_ double _Val, _In_ int _NumOfDigits);
+                                                                         ^
+c:\mingw\include\stdlib.h:739:121: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t   __cdecl _makepath_s(_Out_z_cap_(_SizeInWords) char * _PathResult, _In_ size_t _SizeInWords, _In_opt_z_ const char * _Drive, _In_opt_z_ const char * _Dir, _In_opt_z_ const char * _Filename,
+                                                                                                                         ^
+c:\mingw\include\stdlib.h:782:33: error: conflicting types for '__int64'
+         _Check_return_ unsigned __int64 __cdecl _rotl64(_In_ unsigned __int64 _Val, _In_ int _Shift);
+                                 ^
+c:\mingw\include\stdlib.h:691:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64_l(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:782:49: error: expected ',' or ';' before '_rotl64'
+         _Check_return_ unsigned __int64 __cdecl _rotl64(_In_ unsigned __int64 _Val, _In_ int _Shift);
+                                                 ^
+c:\mingw\include\stdlib.h:784:33: error: conflicting types for '__int64'
+         _Check_return_ unsigned __int64 __cdecl _rotr64(_In_ unsigned __int64 _Val, _In_ int _Shift);
+                                 ^
+c:\mingw\include\stdlib.h:691:24: note: previous declaration of '__int64' was here
+ _Check_return_ _CRTIMP __int64   __cdecl _wcstoi64_l(_In_z_ const wchar_t * _Str, _Out_opt_ _Deref_post_z_ wchar_t ** _EndPtr, _In_ int _Radix, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\stdlib.h:784:49: error: expected ',' or ';' before '_rotr64'
+         _Check_return_ unsigned __int64 __cdecl _rotr64(_In_ unsigned __int64 _Val, _In_ int _Shift);
+                                                 ^
+c:\mingw\include\stdlib.h:787:149: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _searchenv_s(_In_z_ const char * _Filename, _In_z_ const char * _EnvVar, _Out_z_cap_(_SizeInBytes) char * _ResultPath, _In_ size_t _SizeInBytes);
+                                                                                                                                                     ^
+c:\mingw\include\stdlib.h:793:51: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_DriveSize) char * _Drive, _In_ size_t _DriveSize, 
+                                                   ^
+c:\mingw\include\stdlib.h:794:47: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_DirSize) char * _Dir, _In_ size_t _DirSize, 
+                                               ^
+c:\mingw\include\stdlib.h:795:57: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_FilenameSize) char * _Filename, _In_ size_t _FilenameSize, 
+                                                         ^
+c:\mingw\include\stdlib.h:796:47: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_ExtSize) char * _Ext, _In_ size_t _ExtSize);
+                                               ^
+c:\mingw\include\stdlib.h:810:139: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_ _CRTIMP wchar_t * __cdecl _wfullpath(_Out_opt_z_cap_(_SizeInWords) wchar_t * _FullPath, _In_z_ const wchar_t * _Path, _In_ size_t _SizeInWords);
+                                                                                                                                           ^
+c:\mingw\include\stdlib.h:816:116: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP_ALTERNATIVE errno_t __cdecl _wmakepath_s(_Out_z_cap_(_SIZE) wchar_t * _PathResult, _In_ size_t _SIZE, _In_opt_z_ const wchar_t * _Drive, _In_opt_z_ const wchar_t * _Dir, _In_opt_z_ const wchar_t * _Filename,
+                                                                                                                    ^
+c:\mingw\include\stdlib.h:826:159: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wsearchenv_s(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _EnvVar, _Out_z_cap_(_SizeInWords) wchar_t * _ResultPath, _In_ size_t _SizeInWords);
+                                                                                                                                                               ^
+c:\mingw\include\stdlib.h:831:54: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_DriveSize) wchar_t * _Drive, _In_ size_t _DriveSize, 
+                                                      ^
+c:\mingw\include\stdlib.h:832:50: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_DirSize) wchar_t * _Dir, _In_ size_t _DirSize, 
+                                                  ^
+c:\mingw\include\stdlib.h:833:60: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_FilenameSize) wchar_t * _Filename, _In_ size_t _FilenameSize, 
+                                                            ^
+c:\mingw\include\stdlib.h:834:50: error: expected declaration specifiers or '...' before 'size_t'
+   _Out_opt_z_cap_(_ExtSize) wchar_t * _Ext, _In_ size_t _ExtSize);
+                                                  ^
+In file included from helloworld.c:8:0:
+C:\Anaconda\include/pyconfig.h:273:15: error: static declaration of '_hypot' follows non-static declaration
+ #define hypot _hypot
+               ^
+In file included from C:\Anaconda\include/pyport.h:325:0,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\math.h:138:25: note: previous declaration of '_hypot' was here
+ _CRTIMP double  __cdecl _hypot(_In_ double _X, _In_ double _Y);
+                         ^
+In file included from C:\Anaconda\include/pyport.h:338:0,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\time.h:149:43: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _get_tzname(_Out_ size_t *_ReturnValue, _Out_z_cap_(_SizeInBytes) char *_Buffer, _In_ size_t _SizeInBytes, _In_ int _Index);
+                                           ^
+c:\mingw\include\time.h:149:111: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _get_tzname(_Out_ size_t *_ReturnValue, _Out_z_cap_(_SizeInBytes) char *_Buffer, _In_ size_t _SizeInBytes, _In_ int _Index);
+                                                                                                               ^
+In file included from C:\Anaconda\include/pyport.h:338:0,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\time.h:155:114: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl asctime_s(_Out_cap_(_SizeInBytes) _Post_count_c_(26) char *_Buf, _In_ size_t _SizeInBytes, _In_ const struct tm * _Tm);
+                                                                                                                  ^
+c:\mingw\include\time.h:159:1: error: unknown type name '__time32_t'
+ _CRT_INSECURE_DEPRECATE(_ctime32_s) _CRTIMP char * __cdecl _ctime32(_In_ const __time32_t * _Time);
+ ^
+c:\mingw\include\time.h:160:96: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _ctime32_s(_Out_cap_(_SizeInBytes) _Post_count_c_(26) char *_Buf, _In_ size_t _SizeInBytes, _In_ const __time32_t *_Time);
+                                                                                                ^
+c:\mingw\include\time.h:160:96: error: unknown type name '__time32_t'
+c:\mingw\include\time.h:164:41: error: unknown type name '__time32_t'
+ _CRTIMP double __cdecl _difftime32(_In_ __time32_t _Time1, _In_ __time32_t _Time2);
+                                         ^
+c:\mingw\include\time.h:164:65: error: unknown type name '__time32_t'
+ _CRTIMP double __cdecl _difftime32(_In_ __time32_t _Time1, _In_ __time32_t _Time2);
+                                                                 ^
+c:\mingw\include\time.h:166:68: error: unknown type name '__time32_t'
+ _Check_return_ _CRT_INSECURE_DEPRECATE(_gmtime32_s) _CRTIMP struct tm * __cdecl _gmtime32(_In_ const __time32_t * _Time);
+                                                                    ^
+c:\mingw\include\time.h:167:68: error: unknown type name '__time32_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _gmtime32_s(_In_ struct tm *_Tm, _In_ const __time32_t * _Time);
+                                                                    ^
+c:\mingw\include\time.h:169:56: error: unknown type name '__time32_t'
+ _CRT_INSECURE_DEPRECATE(_localtime32_s) _CRTIMP struct tm * __cdecl _localtime32(_In_ const __time32_t * _Time);
+                                                        ^
+c:\mingw\include\time.h:170:53: error: unknown type name '__time32_t'
+ _CRTIMP errno_t __cdecl _localtime32_s(_Out_ struct tm *_Tm, _In_ const __time32_t * _Time);
+                                                     ^
+c:\mingw\include\time.h:172:24: error: expected ',' or ';' before 'strftime'
+ _CRTIMP size_t __cdecl strftime(_Out_z_cap_(_SizeInBytes) char * _Buf, _In_ size_t _SizeInBytes, _In_z_ _Printf_format_string_ const char * _Format, _In_ const struct tm * _Tm);
+                        ^
+c:\mingw\include\time.h:173:24: error: expected ',' or ';' before '_strftime_l'
+ _CRTIMP size_t __cdecl _strftime_l(_Pre_notnull_ _Post_z_ char *_Buf, _In_ size_t _Max_size, _In_z_ _Printf_format_string_ const char * _Format, _In_ const struct tm *_Tm, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\time.h:175:114: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strdate_s(_Out_cap_(_SizeInBytes) _Post_count_c_(9) char *_Buf, _In_ size_t _SizeInBytes);
+                                                                                                                  ^
+c:\mingw\include\time.h:179:115: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _strtime_s(_Out_cap_(_SizeInBytes) _Post_count_c_(9) char *_Buf , _In_ size_t _SizeInBytes);
+                                                                                                                   ^
+c:\mingw\include\time.h:183:28: error: expected ',' or ';' before '_time32'
+ _CRTIMP __time32_t __cdecl _time32(_Out_opt_ __time32_t * _Time);
+                            ^
+c:\mingw\include\time.h:184:28: error: expected ',' or ';' before '_mktime32'
+ _CRTIMP __time32_t __cdecl _mktime32(_Inout_ struct tm * _Tm);
+                            ^
+c:\mingw\include\time.h:185:28: error: expected ',' or ';' before '_mkgmtime32'
+ _CRTIMP __time32_t __cdecl _mkgmtime32(_Inout_ struct tm * _Tm);
+                            ^
+c:\mingw\include\time.h:195:79: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _ctime64_s(_Out_z_cap_(_SizeInBytes) char *_Buf, _In_ size_t _SizeInBytes, _In_ const __time64_t * _Time);
+                                                                               ^
+c:\mingw\include\time.h:223:100: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wasctime_s(_Out_cap_(_SizeInWords) _Post_count_c_(26) wchar_t *_Buf, _In_ size_t _SizeInWords, _In_ const struct tm * _Tm);
+                                                                                                    ^
+c:\mingw\include\time.h:226:96: error: expected ';', ',' or ')' before '*' token
+ _CRT_INSECURE_DEPRECATE(_wctime32_s) _CRTIMP wchar_t * __cdecl _wctime32(_In_ const __time32_t *_Time);
+                                                                                                ^
+c:\mingw\include\time.h:227:100: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wctime32_s(_Out_cap_(_SizeInWords) _Post_count_c_(26) wchar_t* _Buf, _In_ size_t _SizeInWords, _In_ const __time32_t * _Time);
+                                                                                                    ^
+c:\mingw\include\time.h:227:143: error: expected ';', ',' or ')' before '*' token
+ _CRTIMP errno_t __cdecl _wctime32_s(_Out_cap_(_SizeInWords) _Post_count_c_(26) wchar_t* _Buf, _In_ size_t _SizeInWords, _In_ const __time32_t * _Time);
+                                                                                                                                               ^
+c:\mingw\include\time.h:230:24: error: expected ',' or ';' before 'wcsftime'
+ _CRTIMP size_t __cdecl wcsftime(_Out_z_cap_(_SizeInWords) wchar_t * _Buf, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t * _Format,  _In_ const struct tm * _Tm);
+                        ^
+c:\mingw\include\time.h:231:24: error: expected ',' or ';' before '_wcsftime_l'
+ _CRTIMP size_t __cdecl _wcsftime_l(_Out_z_cap_(_SizeInWords) wchar_t * _Buf, _In_ size_t _SizeInWords, _In_z_ _Printf_format_string_ const wchar_t *_Format, _In_ const struct tm *_Tm, _In_opt_ _locale_t _Locale);
+                        ^
+c:\mingw\include\time.h:233:100: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wstrdate_s(_Out_cap_(_SizeInWords) _Post_count_c_(9) wchar_t * _Buf, _In_ size_t _SizeInWords);
+                                                                                                    ^
+c:\mingw\include\time.h:237:100: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wstrtime_s(_Out_cap_(_SizeInWords) _Post_count_c_(9) wchar_t * _Buf, _In_ size_t _SizeInWords);
+                                                                                                    ^
+c:\mingw\include\time.h:242:100: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl _wctime64_s(_Out_cap_(_SizeInWords) _Post_count_c_(26) wchar_t* _Buf, _In_ size_t _SizeInWords, _In_ const __time64_t *_Time);
+                                                                                                    ^
+In file included from c:\mingw\include\time.h:246:0,
+                 from C:\Anaconda\include/pyport.h:338,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\wtime.inl:52:63: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline errno_t __CRTDECL _wctime_s(wchar_t *_Buffer, size_t _SizeInWords, const time_t * _Time)
+                                                               ^
+In file included from c:\mingw\include\time.h:253:0,
+                 from C:\Anaconda\include/pyport.h:338,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\time.inl:94:58: error: expected declaration specifiers or '...' before 'size_t'
+ static __inline errno_t __CRTDECL ctime_s(char *_Buffer, size_t _SizeInBytes, const time_t * _Time)
+                                                          ^
+In file included from C:\Anaconda\include/pyport.h:390:0,
+                 from C:\Anaconda\include/Python.h:58,
+                 from helloworld.c:16:
+c:\mingw\include\sys\stat.h:93:9: error: expected specifier-qualifier-list before '__time32_t'
+         __time32_t st_atime;
+         ^
+c:\mingw\include\sys\stat.h:124:9: error: expected specifier-qualifier-list before '__int64'
+         __int64    st_size;
+         ^
+c:\mingw\include\sys\stat.h:152:9: error: expected specifier-qualifier-list before '__int64'
+         __int64    st_size;
+         ^
+In file included from C:\Anaconda\include/Python.h:78:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/pymem.h:52:1: warning: parameter names (without types) in function declaration [enabled by default]
+ PyAPI_FUNC(void *) PyMem_Malloc(size_t);
+ ^
+C:\Anaconda\include/pymem.h:53:42: error: expected declaration specifiers or '...' before 'size_t'
+ PyAPI_FUNC(void *) PyMem_Realloc(void *, size_t);
+                                          ^
+In file included from C:\Anaconda\include/Python.h:81:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/objimpl.h:97:1: warning: parameter names (without types) in function declaration [enabled by default]
+ PyAPI_FUNC(void *) PyObject_Malloc(size_t);
+ ^
+C:\Anaconda\include/objimpl.h:98:45: error: expected declaration specifiers or '...' before 'size_t'
+ PyAPI_FUNC(void *) PyObject_Realloc(void *, size_t);
+                                             ^
+C:\Anaconda\include/objimpl.h:306:1: warning: parameter names (without types) in function declaration [enabled by default]
+ PyAPI_FUNC(PyObject *) _PyObject_GC_Malloc(size_t);
+ ^
+In file included from C:\Anaconda\include/unicodeobject.h:120:0,
+                 from C:\Anaconda\include/Python.h:85,
+                 from helloworld.c:16:
+c:\mingw\include\wchar.h:355:26: error: expected ',' or ';' before '_wexecl'
+ _CRTIMP intptr_t __cdecl _wexecl(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:356:26: error: expected ',' or ';' before '_wexecle'
+ _CRTIMP intptr_t __cdecl _wexecle(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:357:26: error: expected ',' or ';' before '_wexeclp'
+ _CRTIMP intptr_t __cdecl _wexeclp(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:358:26: error: expected ',' or ';' before '_wexeclpe'
+ _CRTIMP intptr_t __cdecl _wexeclpe(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:359:26: error: expected ',' or ';' before '_wexecv'
+ _CRTIMP intptr_t __cdecl _wexecv(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList);
+                          ^
+c:\mingw\include\wchar.h:360:26: error: expected ',' or ';' before '_wexecve'
+ _CRTIMP intptr_t __cdecl _wexecve(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList,
+                          ^
+c:\mingw\include\wchar.h:362:26: error: expected ',' or ';' before '_wexecvp'
+ _CRTIMP intptr_t __cdecl _wexecvp(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList);
+                          ^
+c:\mingw\include\wchar.h:363:26: error: expected ',' or ';' before '_wexecvpe'
+ _CRTIMP intptr_t __cdecl _wexecvpe(_In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList, 
+                          ^
+c:\mingw\include\wchar.h:365:26: error: expected ',' or ';' before '_wspawnl'
+ _CRTIMP intptr_t __cdecl _wspawnl(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:366:26: error: expected ',' or ';' before '_wspawnle'
+ _CRTIMP intptr_t __cdecl _wspawnle(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:367:26: error: expected ',' or ';' before '_wspawnlp'
+ _CRTIMP intptr_t __cdecl _wspawnlp(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:368:26: error: expected ',' or ';' before '_wspawnlpe'
+ _CRTIMP intptr_t __cdecl _wspawnlpe(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * _ArgList, ...);
+                          ^
+c:\mingw\include\wchar.h:369:26: error: expected ',' or ';' before '_wspawnv'
+ _CRTIMP intptr_t __cdecl _wspawnv(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList);
+                          ^
+c:\mingw\include\wchar.h:370:26: error: expected ',' or ';' before '_wspawnve'
+ _CRTIMP intptr_t __cdecl _wspawnve(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList,
+                          ^
+c:\mingw\include\wchar.h:372:26: error: expected ',' or ';' before '_wspawnvp'
+ _CRTIMP intptr_t __cdecl _wspawnvp(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList);
+                          ^
+c:\mingw\include\wchar.h:373:26: error: expected ',' or ';' before '_wspawnvpe'
+ _CRTIMP intptr_t __cdecl _wspawnvpe(_In_ int _Mode, _In_z_ const wchar_t * _Filename, _In_z_ const wchar_t * const * _ArgList,
+                          ^
+c:\mingw\include\wchar.h:607:120: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _cgetws_s(_Out_cap_post_count_(_SizeInWords, *_SizeRead) wchar_t * _Buffer, size_t _SizeInWords, _Out_ size_t * _SizeRead);
+                                                                                                                        ^
+c:\mingw\include\wchar.h:607:147: error: expected declaration specifiers or '...' before 'size_t'
+ _Check_return_wat_ _CRTIMP errno_t __cdecl _cgetws_s(_Out_cap_post_count_(_SizeInWords, *_SizeRead) wchar_t * _Buffer, size_t _SizeInWords, _Out_ size_t * _SizeRead);
+                                                                                                                                                   ^
+In file included from C:\Anaconda\include/unicodeobject.h:120:0,
+                 from C:\Anaconda\include/Python.h:85,
+                 from helloworld.c:16:
+c:\mingw\include\wchar.h:1163:24: error: expected ',' or ';' before 'mbrlen'
+ _CRTIMP size_t __cdecl mbrlen(_In_opt_bytecount_(_SizeInBytes) _Pre_opt_z_ const char * _Ch, _In_ size_t _SizeInBytes,
+                        ^
+c:\mingw\include\wchar.h:1165:24: error: expected ',' or ';' before 'mbrtowc'
+ _CRTIMP size_t __cdecl mbrtowc(_Pre_maybenull_ _Post_z_ wchar_t * _DstCh, _In_opt_bytecount_(_SizeInBytes) _Pre_opt_z_ const char * _SrcCh,
+                        ^
+c:\mingw\include\wchar.h:1167:47: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl mbsrtowcs_s(_Out_opt_ size_t* _Retval, _Out_opt_z_cap_(_Size) wchar_t * _Dst, _In_ size_t _Size, _Inout_ _Deref_prepost_opt_valid_ const char ** _PSrc, _In_ size_t _N, _Out_opt_ mbstate_t * _State);
+                                               ^
+c:\mingw\include\wchar.h:1167:108: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl mbsrtowcs_s(_Out_opt_ size_t* _Retval, _Out_opt_z_cap_(_Size) wchar_t * _Dst, _In_ size_t _Size, _Inout_ _Deref_prepost_opt_valid_ const char ** _PSrc, _In_ size_t _N, _Out_opt_ mbstate_t * _State);
+                                                                                                            ^
+c:\mingw\include\wchar.h:1167:182: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl mbsrtowcs_s(_Out_opt_ size_t* _Retval, _Out_opt_z_cap_(_Size) wchar_t * _Dst, _In_ size_t _Size, _Inout_ _Deref_prepost_opt_valid_ const char ** _PSrc, _In_ size_t _N, _Out_opt_ mbstate_t * _State);
+                                                                                                                                                                                      ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\wchar.h:1169:1: error: expected ',' or ';' before 'mbsrtowcs'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(_CRTIMP, mbsrtowcs, _Pre_notnull_ _Post_z_, wchar_t, _Dest, _Inout_ _Deref_prepost_opt_valid_ const char **, _PSrc, _In_ size_t, _Count, _Inout_opt_ mbstate_t *, _State)
+ ^
+In file included from C:\Anaconda\include/unicodeobject.h:120:0,
+                 from C:\Anaconda\include/Python.h:85,
+                 from helloworld.c:16:
+c:\mingw\include\wchar.h:1171:45: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl wcrtomb_s(_Out_opt_ size_t * _Retval, _Out_opt_z_bytecap_(_SizeInBytes) char * _Dst,
+                                             ^
+c:\mingw\include\wchar.h:1172:14: error: expected declaration specifiers or '...' before 'size_t'
+         _In_ size_t _SizeInBytes, _In_ wchar_t _Ch, _Out_opt_ mbstate_t * _State);
+              ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\wchar.h:1174:1: error: expected ',' or ';' before 'wcrtomb'
+ __DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_2_SIZE(_CRTIMP, wcrtomb, _Pre_maybenull_ _Post_z_, char, _Dest, _In_ wchar_t, _Source, _Out_opt_ mbstate_t *, _State)
+ ^
+In file included from C:\Anaconda\include/unicodeobject.h:120:0,
+                 from C:\Anaconda\include/Python.h:85,
+                 from helloworld.c:16:
+c:\mingw\include\wchar.h:1175:47: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP errno_t __cdecl wcsrtombs_s(_Out_opt_ size_t * _Retval, _Out_opt_bytecap_post_bytecount_(_SizeInBytes, *_Retval) char * _Dst,
+                                               ^
+c:\mingw\include\wchar.h:1176:14: error: expected declaration specifiers or '...' before 'size_t'
+         _In_ size_t _SizeInBytes, _Inout_ _Deref_prepost_z_ const wchar_t ** _Src, _In_ size_t _Size, _Out_opt_ mbstate_t * _State);
+              ^
+c:\mingw\include\wchar.h:1176:89: error: expected declaration specifiers or '...' before 'size_t'
+         _In_ size_t _SizeInBytes, _Inout_ _Deref_prepost_z_ const wchar_t ** _Src, _In_ size_t _Size, _Out_opt_ mbstate_t * _State);
+                                                                                         ^
+In file included from c:\mingw\include\io.h:19:0,
+                 from C:\Anaconda\include/pyconfig.h:68,
+                 from helloworld.c:8:
+c:\mingw\include\wchar.h:1178:1: error: expected ',' or ';' before 'wcsrtombs'
+ __DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(_CRTIMP, wcsrtombs, _Pre_maybenull_ _Post_z_, char, _Dest, _Inout_ _Deref_prepost_z_ const wchar_t **, _PSource, _In_ size_t, _Count, _Out_opt_ mbstate_t *, _State)
+ ^
+In file included from C:\Anaconda\include/unicodeobject.h:120:0,
+                 from C:\Anaconda\include/Python.h:85,
+                 from helloworld.c:16:
+c:\mingw\include\wchar.h:1187:168: error: expected declaration specifiers or '...' before 'size_t'
+ _CRTIMP _CRT_INSECURE_DEPRECATE_MEMORY(memmove_s) void *  __cdecl memmove(_Out_opt_bytecapcount_(_Size) void * _Dst, _In_opt_bytecount_(_Size) const void * _Src, _In_ size_t _Size);
+                                                                                                                                                                        ^
+c:\mingw\include\wchar.h:1189:158: error: expected declaration specifiers or '...' before 'size_t'
+ _CRT_INSECURE_DEPRECATE_MEMORY(memcpy_s) void *  __cdecl memcpy(_Out_opt_bytecapcount_(_Size) void * _Dst, _In_opt_bytecount_(_Size) const void * _Src, _In_ size_t _Size);
+                                                                                                                                                              ^
+c:\mingw\include\wchar.h:1198:108: error: expected declaration specifiers or '...' before 'size_t'
+ __inline _CONST_RETURN wchar_t * __CRTDECL wmemchr(_In_count_(_N) const wchar_t *_S, _In_ wchar_t _C, _In_ size_t _N)
+                                                                                                            ^
+c:\mingw\include\wchar.h:1203:107: error: expected declaration specifiers or '...' before 'size_t'
+ __inline int __CRTDECL wmemcmp(_In_count_(_N) const wchar_t *_S1, _In_count_(_N) const wchar_t *_S2, _In_ size_t _N)
+                                                                                                           ^
+c:\mingw\include\wchar.h:1209:156: error: expected declaration specifiers or '...' before 'size_t'
+ __inline _CRT_INSECURE_DEPRECATE_MEMORY(wmemcpy_s) wchar_t * __CRTDECL wmemcpy(_Out_opt_cap_(_N) wchar_t *_S1, _In_opt_count_(_N) const wchar_t *_S2, _In_ size_t _N)
+                                                                                                                                                            ^
+c:\mingw\include\wchar.h:1217:163: error: expected declaration specifiers or '...' before 'size_t'
+ __inline _CRT_INSECURE_DEPRECATE_MEMORY(wmemmove_s) wchar_t * __CRTDECL wmemmove(_Out_opt_capcount_(_N) wchar_t *_S1, _In_opt_count_(_N) const wchar_t *_S2, _In_ size_t _N)
+                                                                                                                                                                   ^
+c:\mingw\include\wchar.h:1232:92: error: expected declaration specifiers or '...' before 'size_t'
+ __inline wchar_t * __CRTDECL wmemset(_Out_capcount_(_N) wchar_t *_S, _In_ wchar_t _C, _In_ size_t _N)
+                                                                                            ^
+In file included from C:\Anaconda\include/Python.h:86:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/intobject.h:39:1: warning: parameter names (without types) in function declaration [enabled by default]
+ PyAPI_FUNC(PyObject *) PyInt_FromSize_t(size_t);
+ ^
+In file included from C:\Anaconda\include/Python.h:88:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/longobject.h:21:1: warning: parameter names (without types) in function declaration [enabled by default]
+ PyAPI_FUNC(PyObject *) PyLong_FromSize_t(size_t);
+ ^
+C:\Anaconda\include/longobject.h:77:20: error: expected '=', ',', ';', 'asm' or '__attribute__' before '_PyLong_NumBits'
+ PyAPI_FUNC(size_t) _PyLong_NumBits(PyObject *v);
+                    ^
+C:\Anaconda\include/longobject.h:93:30: error: expected declaration specifiers or '...' before 'size_t'
+  const unsigned char* bytes, size_t n,
+                              ^
+C:\Anaconda\include/longobject.h:116:24: error: expected declaration specifiers or '...' before 'size_t'
+  unsigned char* bytes, size_t n,
+                        ^
+In file included from C:\Anaconda\include/Python.h:108:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/fileobject.h:66:1: error: unknown type name 'size_t'
+ size_t Py_UniversalNewlineFread(char *, size_t, FILE *, PyObject *);
+ ^
+C:\Anaconda\include/fileobject.h:66:41: error: expected declaration specifiers or '...' before 'size_t'
+ size_t Py_UniversalNewlineFread(char *, size_t, FILE *, PyObject *);
+                                         ^
+In file included from C:\Anaconda\include/Python.h:121:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/pyerrors.h:320:42: error: expected declaration specifiers or '...' before 'size_t'
+ PyAPI_FUNC(int) PyOS_snprintf(char *str, size_t size, const char  *format, ...)
+                                          ^
+C:\Anaconda\include/pyerrors.h:322:43: error: expected declaration specifiers or '...' before 'size_t'
+ PyAPI_FUNC(int) PyOS_vsnprintf(char *str, size_t size, const char  *format, va_list va)
+                                           ^
+In file included from C:\Anaconda\include/Python.h:125:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/pyarena.h:50:48: error: expected declaration specifiers or '...' before 'size_t'
+   PyAPI_FUNC(void *) PyArena_Malloc(PyArena *, size_t size);
+                                                ^
+In file included from C:\Anaconda\include/Python.h:131:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/import.h:39:36: error: expected declaration specifiers or '...' before 'size_t'
+  const char *, PyObject *, char *, size_t, FILE **, PyObject **);
+                                    ^
+In file included from C:\Anaconda\include/Python.h:139:0,
+                 from helloworld.c:16:
+C:\Anaconda\include/pystrtod.h:13:53: error: expected declaration specifiers or '...' before 'size_t'
+ PyAPI_FUNC(char *) PyOS_ascii_formatd(char *buffer, size_t buf_len,
+                                                     ^
+helloworld.c: In function '__PYX_NAN':
+helloworld.c:283:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   memset(&value, 0xFF, sizeof(value));
+   ^
+helloworld.c:283:3: warning: incompatible implicit declaration of built-in function 'memset' [enabled by default]
+helloworld.c: At top level:
+helloworld.c:358:29: error: expected '=', ',', ';', 'asm' or '__attribute__' before '__Pyx_Py_UNICODE_strlen'
+ static CYTHON_INLINE size_t __Pyx_Py_UNICODE_strlen(const Py_UNICODE *u)
+                             ^
+helloworld.c:375:1: warning: parameter names (without types) in function declaration [enabled by default]
+ static CYTHON_INLINE PyObject * __Pyx_PyInt_FromSize_t(size_t);
+ ^
+helloworld.c:376:29: error: expected '=', ',', ';', 'asm' or '__attribute__' before '__Pyx_PyInt_AsSize_t'
+ static CYTHON_INLINE size_t __Pyx_PyInt_AsSize_t(PyObject*);
+                             ^
+helloworld.c: In function '__Pyx_check_binary_version':
+helloworld.c:1492:5: warning: implicit declaration of function 'PyOS_snprintf' [-Wimplicit-function-declaration]
+     PyOS_snprintf(ctversion, 4, "%d.%d", PY_MAJOR_VERSION, PY_MINOR_VERSION);
+     ^
+helloworld.c: In function '__pyx_insert_code_object':
+helloworld.c:1571:9: warning: implicit declaration of function 'PyMem_Realloc' [-Wimplicit-function-declaration]
+         entries = (__Pyx_CodeObjectCacheEntry*)PyMem_Realloc(
+         ^
+helloworld.c: In function '__Pyx_PyUnicode_FromString':
+helloworld.c:1702:5: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+     return __Pyx_PyUnicode_FromStringAndSize(c_str, strlen(c_str));
+     ^
+helloworld.c:1702:53: warning: incompatible implicit declaration of built-in function 'strlen' [enabled by default]
+     return __Pyx_PyUnicode_FromStringAndSize(c_str, strlen(c_str));
+                                                     ^
+helloworld.c:431:80: note: in definition of macro '__Pyx_PyUnicode_FromStringAndSize'
+ #define __Pyx_PyUnicode_FromStringAndSize(c_str, size) PyUnicode_Decode(c_str, size, __PYX_DEFAULT_STRING_ENCODING, NULL)
+                                                                                ^
+helloworld.c: At top level:
+helloworld.c:1818:56: error: expected declaration specifiers or '...' before 'size_t'
+ static CYTHON_INLINE PyObject * __Pyx_PyInt_FromSize_t(size_t ival) {
+                                                        ^
+helloworld.c:1831:29: error: expected '=', ',', ';', 'asm' or '__attribute__' before '__Pyx_PyInt_AsSize_t'
+ static CYTHON_INLINE size_t __Pyx_PyInt_AsSize_t(PyObject* x) {
+                             ^
+helloworld.c:375:33: warning: '__Pyx_PyInt_FromSize_t' declared 'static' but never defined [-Wunused-function]
+ static CYTHON_INLINE PyObject * __Pyx_PyInt_FromSize_t(size_t);
+                                 ^
+error: command 'gcc' failed with exit status 1
