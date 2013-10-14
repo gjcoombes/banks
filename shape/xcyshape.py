@@ -167,7 +167,7 @@ if __name__ == "__main__":
 #    for season, nc_var in tuples:
     for season, nc_var in [("sum", "entr_prob_100ppb")]:
         print("*** {} {} ***".format(season, nc_var))
-        mk_shp_v2(season, nc_var, CONFIG)
+        mk_shp_v4(season, nc_var, CONFIG)
 
     elapsed = time.time() - start_time
     print("Full run in {} seconds".format(elapsed))
