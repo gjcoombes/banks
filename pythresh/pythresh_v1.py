@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# cython: profile=True
 """
 Module: build_particle_array.py
 Created on Sat Oct 19 15:34:52 2013
@@ -15,11 +14,10 @@ import time
 
 import os.path as osp
 import numpy as np
-cimport numpy as np
 import numpy.ma as ma
 import pickle
 
-
+from numpy import array, newaxis
 import scipy.sparse as sp
 import matplotlib.pyplot as plt
 
@@ -29,7 +27,7 @@ from shapely.geometry import Polygon
 #
 #import bonaparte
 #import bonaparte.stoch.stoch_lib as sl
-#from bonaparte.utils.grid_cell_areas import grid_cell_areas
+#import bonaparte.utils.grid_cell_areas as ga
 
 ### Logging
 import logging
@@ -154,8 +152,8 @@ def ga_verts_factory(grid_header):
 
 
 def sl_gridder_arr_factory(grid_fp=None,
-                          grid_ext=None,
-                          grid_spc=None):
+                        grid_ext=None,
+                        grid_spc=None):
     """Return a function to convert lon, lat to row, col
 
     Args of factory:
@@ -230,7 +228,34 @@ def sl_grid_mass_dense(particles, gridder, grid_shape):
     mass_coo = sp.coo_matrix((_data, (_row, _col)), shape=grid_shape)
     return mass_coo.todense()
 
-def sl_grid_mass_sparse(float_arr):
+def sl_grid_mass_sparse(particles, grid_extent, grid_spacing):
+    """
+    Take a full sets of particles, grid and return the particles
+    origin is [ 105.  -15.]
+    delta is [ 0.00764526 -0.00722456]
+    """
+    def log(log_msg): debug("sl_grid_mass_sparse: {}".format(log_msg))
+
+    origin = np.array(grid_extent['upper_left'])
+    print("origin is {}".format(origin))
+    delta = np.array(grid_spacing).view('<f4')
+    ijv = particles[['lon', 'lat', 'mass']].copy()
+    log("ijv flags are %s" % ijv.flags)
+    log("ijv dtype is %s" % ijv.dtype)
+    log("ijv shape is %s" % ijv.shape)
+
+    n_rows = ijv.shape[0]
+    result = np.empty((n_rows, 3))
+    for n in range(n_rows):
+        result[n, 0] = (ijv[n, 0] - origin[0]) // delta[0]
+        result[n, 1] = (ijv[n, 1] - origin[1]) // delta[1]
+        result[n, 2] =  ijv[n, 2]
+
+
+
+
+
+
 
 
 def sl_grid_mass_csr(particles, gridder, grid_shape):
@@ -356,10 +381,6 @@ def main():
 
     for i, tup in enumerate(particles):
         sim_time, surf, entr, arom, shore = tup
-        surf_ijv = surf[['lon', 'lat', 'mass']].copy()
-        pr
-        gridded_surf_p = sl_grid_mass_sparse(surf_ijv)
-
         surf_dense = sl_grid_mass_dense(surf, gridder, grid_shape)
         max_surf_mass = np.maximum(max_surf_mass, surf_dense)
 
