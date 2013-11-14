@@ -6,6 +6,8 @@ Created on Thu Nov 14 21:34:28 2013
 Description: Incremental imporovement of pythresh
 
 test_particles runs in 7.22 seconds per loop
+adding contiguous (but -OO) raises to 10.2 s
+runnng non-optimised but with silent logs adds 5s -> 15s
 
 """
 ### Imports
@@ -13,12 +15,18 @@ from __future__ import print_function
 
 import os.path as osp
 import numpy as np
+importr scipy.sparse as sp
 from time import time
 
 ### Logging
 import logging
-logging.basicConfig(level=logging.DEBUG)
-debug, info, error = logging.debug, logging.info, logging.error
+logger = logging.getLogger("pythresh")
+logger.setLevel(logging.INFO)
+ch = logging.StreamHandler()
+ch.setLevel(logging.INFO)
+logger.addHandler(ch)
+
+debug, info, error = logger.debug, logger.info, logger.error
 ### Constants
 SURFACE_TYPE = 0
 AROMATIC_TYPE = -1
@@ -32,6 +40,68 @@ EMPTY_HEADER_LINES = 7
 ### Functions
 
 ### Stoch_lib module functions here ###
+def parse_grid_header(grid_header):
+    """
+    Separate single parameters and cast to correct type for gridding
+
+    Returns:
+        olon, olat, dlon, dlat
+    """
+    gh = grid_header
+    olon = float(gh['lon_lower_left'])
+    olat = float(gh['lat_lower_left'])
+    dlon = float(gh['lon_delta'])
+    dlat = float(gh['lat_delta'])
+    ni = int(gh['n_cols'])
+    nj = int(gh['n_rows'])
+    return (olon, olat, dlon, dlat, ni, nj)
+
+def sl_contiguous_doubles(p_rec):
+    """
+    Return a copied C contiguous array of lon, lats, mass (doubles) <f8 or np.float64
+    """
+    if __debug__:
+        def log(log_msg):
+            debug("sl_contiguous_doubles: {}".format(log_msg))
+        log("start of recarray is {}".format(p_rec[:6]))
+        log("end of recarray is {}".format(p_rec[-5:]))
+        log("shape of recarray is {}".format(p_rec.shape))
+        log("dtype of recarray is {}".format(p_rec.dtype))
+        log("flags of recarray is {}".format(p_rec.flags))
+
+    arr = p_rec[['lon', 'lat', 'mass']].astype(np.float64)
+
+    if __debug__:
+        log("start of arr is {}".format(arr[:6]))
+        log("end of arr is {}".format(arr[-5:]))
+        log("shape of arr is {}".format(arr.shape))
+        log("dtype of arr is {}".format(arr.dtype))
+        log("flags of arr is {}".format(arr.flags))
+    return arr
+
+def sl_contiguous_singles(p_rec):
+    """
+    Return a copied C contiguous array of lon, lats, mass (single floats) <f4 or np.float32
+    """
+    if __debug__:
+        def log(log_msg):
+            debug("sl_contiguous_doubles: {}".format(log_msg))
+        log("start of recarray is {}".format(p_rec[:6]))
+        log("end of recarray is {}".format(p_rec[-5:]))
+        log("shape of recarray is {}".format(p_rec.shape))
+        log("dtype of recarray is {}".format(p_rec.dtype))
+        log("flags of recarray is {}".format(p_rec.flags))
+
+    arr = p_rec[['lon', 'lat', 'mass']]
+
+    if __debug__:
+        log("start of arr is {}".format(arr[:6]))
+        log("end of arr is {}".format(arr[-5:]))
+        log("shape of arr is {}".format(arr.shape))
+        log("dtype of arr is {}".format(arr.dtype))
+        log("flags of arr is {}".format(arr.flags))
+    return arr
+
 def sl_grid_extent(h):
     """Return the upper left and lower right corners as lon, lat pairs
 
@@ -68,6 +138,50 @@ def sl_grid_header(fp):
     if __debug__:
         log("header is {}".format(header))
     return header
+
+def sl_grid_mass_dense(particles, gridder, grid_shape):
+    """Grid the mass of the particles and return a dense array
+
+    Args:
+        particles - array from the chunker
+        gridder - function to return the grid indices
+        grid_shape - tuple of (n_rows, n_cols)
+    """
+    idxs = gridder(particles[['lon', 'lat']])
+    _data = particles['mass']
+    _col = idxs[:,0]     # lon
+    _row = idxs[:,1]     # lat
+    mass_coo = sp.coo_matrix((_data, (_row, _col)), shape=grid_shape)
+    return mass_coo.todense()
+
+def sl_grid_mass_sparse(particles, olon, olat, dlon, dlat, ni, nj):
+    """
+    Grid the particles into i, j, mass triples
+
+    Args:
+        particles: a c-contiguous array of doubles lon, lat, mass
+        olon: a double representing the longitude of the origin
+        olat: a double representing the latitude of the origin
+        dlon: a double representing the column spacing
+        dlat: a double representing the row spacing
+        ni: Do i need these?
+        nj:
+
+    Returns:
+        arr_ij : int array of i, j grid indices
+        arr_mass: double array of masses
+            Note: the output array must have the same length
+    """
+    if __debug__:
+        def log(log_msg):
+            info("sl_grid_mass_sparse: {}".format(log_msg))
+        log("shape of particles is %s" % particles.shape)
+        log("start of particles is %s" % particles[:6])
+        log("end of particles is %s" % particles[-5:])
+
+    N = particles.shape[1]
+    for i in range(N):
+
 
 def sl_lu3_data(lu3_fp):
     """Return binary data from file"""
@@ -149,7 +263,87 @@ def sl_particles(tr3_fp, lu3_fp, grid_fp):
             arom_p = particles[np_and(bounds_mask, arom_mask)]
             yield (row['time'], surf_p, entr_p, arom_p, shore_cells)
 
+def sl_update_agg_arrays(sim_time, ij_arr, mass_arr,
+                         max_mass_arr, min_time_arr, mass_threshold_col):
+    """
+    Update the aggregate arrays in-place
+
+    Find where the new cells are higher than the aggregate mass
+    Update those cells in the mass array
+    Update those cells with the time in the time array
+    """
+    pass
+
+def main():
+    """
+    """
+    def log(log_msg): debug("main: {}".format(log_msg))
+
+    start_time = time()
+    project_dir = r"J:\data\j0267_nv_remodel"
+    stem = "J0267_SC3_SBED_LEAK_TRA_001"
+    grid_fn = "VanGogh_800m.DEP"
+
+    tr3_fp = osp.join(project_dir, "modelout", stem + ".tr3" )
+    lu3_fp = osp.join(project_dir, "modelout", stem + ".lu3" )
+    grid_fp = osp.join(project_dir, "grids", grid_fn)
+
+    surf_threshold = 1e-6 # T/m2 or 1 g/m2
+    cell_areas = ga_grid_cell_areas(grid_fp=grid_fp)
+    mass_threshold_col = None
+
+    grid_header = sl_grid_header(grid_fp)
+    olon, olat, dlon, dlat, ni, nj = parse_grid_header(grid_header)
+    max_mass_arr = np.zeros((nj, ni))
+    min_time_arr = np.empty_like(max_mass_arr).filled(1e9)
+
+    for i, tup in enumerate(sl_particles(tr3_fp, lu3_fp, grid_fp)):
+        sim_time, surf, entr, arom, shore = tup
+        surf_arr = sl_contiguous_doubles(surf)
+#        # Original code
+#        header = sl_grid_header(grid_fp)
+#        grid_shape = (header['n_rows'], header['n_cols'])
+#        gridder = sl_gridder_arr_factory(grid_fp)
+#        surf_dense = sl_grid_mass_dense(surf, gridder, grid_shape)
+#        max_surf_mass = np.maximum(max_surf_mass, surf_dense)
+
+        # what we want
+        ij_arr, mass_arr = sl_grid_mass_sparse(surf_arr, olon, olat, dlon, dlat)
+        # Write the timestep array to hdf5 here
+        sl_update_agg_arrays(sim_time, ij_arr, mass_arr,
+                             max_mass_arr, min_time_arr, mass_threshold_col)
+
+#        print(sim_time)
+    elapsed_time = time() - start_time
+    info("test in {} seconds".format(elapsed_time))
+
 ### Tests
+def particles_fixture():
+    project_dir = r"J:\data\j0267_nv_remodel"
+    stem = "J0267_SC3_SBED_LEAK_TRA_001"
+    grid_fn = "VanGogh_800m.DEP"
+
+    tr3_fp = osp.join(project_dir, "modelout", stem + ".tr3" )
+    lu3_fp = osp.join(project_dir, "modelout", stem + ".lu3" )
+    grid_fp = osp.join(project_dir, "grids", grid_fn)
+    return sl_particles(tr3_fp, lu3_fp, grid_fp)
+
+def test_contiguous_doubles():
+    particles = particles_fixture()
+    for i, tup in enumerate(particles):
+        sim_time, surf, entr, arom, shore = tup
+        c_arr = sl_contiguous_doubles(surf)
+        if i >3:
+            break
+
+def test_contiguous_singles():
+    particles = particles_fixture()
+    for i, tup in enumerate(particles):
+        sim_time, surf, entr, arom, shore = tup
+        c_arr = sl_contiguous_singles(surf)
+        if i >3:
+            break
+
 def test_particles():
     def log(log_msg): debug("test_particles: {}".format(log_msg))
 
@@ -170,8 +364,10 @@ def test_particles():
 
 if __name__ == "__main__":
 
-    test_particles()
+#    test_contiguous_doubles()
+#    test_contiguous_singles()
 
+    main()
 
 
 
