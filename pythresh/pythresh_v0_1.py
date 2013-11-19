@@ -9,6 +9,14 @@ test_particles runs in 7.22 seconds per loop
 adding contiguous (but -OO) raises to 10.2 s
 runnng non-optimised but with silent logs adds 5s -> 15s
 
+running main first 400 chunnks in < 15 s
+Chief bottlenecks at grid_mass_sparse, update arrays.
+Particularly divmod
+
+%lprun on grid_mass_sparse confirm >70% of time in function spent on divmod
+%lprun on update_agg_arrays shows even time on array lookups,
+    need to check if separate vecs or single array best for memory locality
+
 """
 ### Imports
 from __future__ import print_function
@@ -162,7 +170,7 @@ def sl_contiguous_doubles(p_rec):
     """
     if __debug__:
         def log(log_msg):
-            info("sl_contiguous_doubles: {}".format(log_msg))
+            debug("sl_contiguous_doubles: {}".format(log_msg))
         log("start of recarray is {}".format(p_rec[:6]))
         log("end of recarray is {}".format(p_rec[-5:]))
         log("shape of recarray is {}".format(p_rec.shape))
@@ -277,7 +285,7 @@ def sl_grid_mass_sparse(particles, olon, olat, dlon, dlat, ni, nj):
     """
     if __debug__:
         def log(log_msg):
-            info("sl_grid_mass_sparse: {}".format(log_msg))
+            debug("sl_grid_mass_sparse: {}".format(log_msg))
         log("shape of particles is {}".format(particles.shape))
         log("start of particles is {}".format(particles[:6]))
         log("end of particles is {}".format(particles[-5:]))
@@ -461,27 +469,16 @@ def main():
     min_time_arr = np.empty_like(max_mass_arr).fill(1e9)
 
     for i, tup in enumerate(sl_particles(tr3_fp, lu3_fp, grid_fp)):
-        if i > 7:
+        if i > 400:
             break
         sim_time, surf, entr, arom, shore = tup
         surf_arr = sl_contiguous_doubles(surf)
-#        # Original code
-#        header = sl_grid_header(grid_fp)
-#        grid_shape = (header['n_rows'], header['n_cols'])
-#        gridder = sl_gridder_arr_factory(grid_fp)
-#        surf_dense = sl_grid_mass_dense(surf, gridder, grid_shape)
-#        max_surf_mass = np.maximum(max_surf_mass, surf_dense)
-
         if len(surf_arr) == 0:
             continue
         i_vec, j_vec, mass_vec = sl_grid_mass_sparse(surf_arr, olon, olat, dlon, dlat, ni, nj)
-        # Sum masses in duplicate i,j indices
-
         # Write the timestep array to hdf5 here
         sl_update_agg_arrays(sim_time, i_vec, j_vec, mass_vec,
                              max_mass_arr, min_time_arr, mass_threshold_col)
-
-#        print(sim_time)
     elapsed_time = time() - start_time
     info("test in {} seconds".format(elapsed_time))
 
@@ -509,7 +506,7 @@ def test_contiguous_singles():
     for i, tup in enumerate(particles):
         sim_time, surf, entr, arom, shore = tup
         c_arr = sl_contiguous_singles(surf)
-        if i >3:
+        if i > 3:
             break
 
 def test_particles():
