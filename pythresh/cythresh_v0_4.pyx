@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+# cython: profile=True
 """
-Module: cythresh_v0_1.py
+Module: cythresh_v0_2.py
 Created on Thu Nov 14 21:34:28 2013
 @author: gav
 Description: Incremental improvement of pythresh
@@ -17,12 +18,24 @@ Particularly divmod
 %lprun on update_agg_arrays shows even time on array lookups,
     need to check if separate vecs or single array best for memory locality
 
+Typing variables in sl_grid_mass_sparse took func time from 7.6s to 0.7s
+Now timeit reports best loop of 7.002s for first 400 chunks
+
+Typing variables in update_agg took func time from 5.7 to 0s?
+With profiling off timeit has 1.37s best loop for 400 chunks
 """
 ### Imports
 from __future__ import print_function
 
 import os.path as osp
+
 import numpy as np
+cimport numpy as np
+#cdef extern from "math.h":
+#    double remquo(double numer, double, denom, int &quot)
+
+from libc.math cimport remquo
+
 import scipy.sparse as sp
 from time import time
 
@@ -39,6 +52,9 @@ logger.addHandler(ch)
 
 debug, info, warn, error = logger.debug, logger.info, logger.warn, logger.error
 ### Constants
+DTYPE = np.float64
+ctypedef np.float64_t DTYPE_t
+
 SURFACE_TYPE = 0
 AROMATIC_TYPE = -1
 ENTRAINED_TYPE = -2
@@ -265,7 +281,13 @@ def sl_grid_mass_dense(particles, gridder, grid_shape):
     mass_coo = sp.coo_matrix((_data, (_row, _col)), shape=grid_shape)
     return mass_coo.todense()
 
-def sl_grid_mass_sparse(particles, olon, olat, dlon, dlat, ni, nj):
+cdef sl_grid_mass_sparse(double [:,::1] particles,
+                        double olon,
+                        double olat,
+                        double dlon,
+                        double dlat,
+                        Py_ssize_t ni,
+                        Py_ssize_t nj):
     """
     Grid the particles into i, j, mass triples
 
@@ -283,17 +305,17 @@ def sl_grid_mass_sparse(particles, olon, olat, dlon, dlat, ni, nj):
         arr_mass: double array of masses
             Note: the output array must have the same length
     """
-#    if __debug__:
-#        def log(log_msg):
-#            debug("sl_grid_mass_sparse: {}".format(log_msg))
-#        log("shape of particles is {}".format(particles.shape))
-#        log("start of particles is {}".format(particles[:6]))
-#        log("end of particles is {}".format(particles[-5:]))
+    cdef int N = particles.shape[0]
+    cdef int m
+    cdef double _
 
-    N = particles.shape[0]
-    particle_i_arr = np.empty((N,), dtype=np.int32)
-    particle_j_arr = np.empty_like(particle_i_arr)
-    particle_mass_arr = particles[:,2]
+    np_arr   = np.empty((N,), dtype=np.int32)
+    np_arr_2 = np.empty_like(np_arr)
+
+    cdef int [::1] particle_i_arr = np_arr
+    cdef int [::1] particle_j_arr = np_arr_2
+    cdef double [:] particle_mass_arr = particles[:,2]
+
     for m in xrange(N):
         # Longitude col 0, latitude col 1
         particle_i_arr[m], _ = divmod(particles[m,0] - olon, dlon)
@@ -303,17 +325,6 @@ def sl_grid_mass_sparse(particles, olon, olat, dlon, dlat, ni, nj):
                                               particle_j_arr,
                                               particle_mass_arr,
                                               ni, nj)
-
-#    if __debug__:
-#        log("shape of arr_i is {}".format(arr_i.shape))
-#        log("start of arr_i is \n%s" % arr_i[:6])
-#        log("end of arr_i is \n%s" % arr_i[-5:])
-#        log("shape of arr_j is {}".format(arr_j.shape))
-#        log("start of arr_j is \n%s" % arr_j[:6])
-#        log("end of arr_j is \n%s" % arr_j[-5:])
-#        log("shape of arr_mass is {}".format(arr_mass.shape))
-#        log("start of arr_mass is \n%s" % arr_mass[:6])
-#        log("end of arr_mass is \n%s" % arr_mass[-5:])
     return arr_i, arr_j, arr_mass
 
 
@@ -423,8 +434,14 @@ def sl_sum_particles(particle_i_arr,
     return mass_coo.col, mass_coo.row, mass_coo.data
 
 
-def sl_update_agg_arrays(sim_time, i_vec, j_vec, mass_vec,
-                         max_mass_arr, min_time_arr, mass_threshold_col):
+cdef sl_update_agg_arrays(int sim_time,
+                         int [::1] i_vec,
+                         int [::1] j_vec,
+                         double [:] mass_vec,
+                         double [:,:] max_mass_arr,
+                         int    [:,:] min_time_arr,
+                         double [:] mass_threshold_col
+                         ):
     """
     Update the aggregate arrays in-place
 
@@ -432,7 +449,12 @@ def sl_update_agg_arrays(sim_time, i_vec, j_vec, mass_vec,
     Update those cells in the mass array
     Update those cells with the time in the time array
     """
-    N = i_vec.shape[0]
+    cdef int n
+    cdef int i
+    cdef int j
+    cdef double mass
+    cdef double threshold
+    cdef int N = i_vec.shape[0]
     for n in xrange(N):
         i = i_vec[n]
         j = j_vec[n]
@@ -443,7 +465,6 @@ def sl_update_agg_arrays(sim_time, i_vec, j_vec, mass_vec,
         if mass > threshold and sim_time < min_time_arr[j, i]:
             min_time_arr[j, i] = sim_time
 
-    return None
 
 def main():
     """
@@ -466,11 +487,11 @@ def main():
     grid_header = sl_grid_header(grid_fp)
     olon, olat, dlon, dlat, ni, nj = parse_grid_header(grid_header)
     max_mass_arr = np.zeros((nj, ni))
-    min_time_arr = np.empty_like(max_mass_arr).fill(1e9)
+    min_time_arr = np.empty_like(max_mass_arr, dtype=np.int32).fill(10**9)
 
     for i, tup in enumerate(sl_particles(tr3_fp, lu3_fp, grid_fp)):
-        if i > 400:
-            break
+#        if i > 400:
+#            break
         sim_time, surf, entr, arom, shore = tup
         surf_arr = sl_contiguous_doubles(surf)
         if len(surf_arr) == 0:

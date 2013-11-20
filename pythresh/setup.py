@@ -44,10 +44,10 @@ setup(
     cmdclass = {'build_ext': build_ext},
     ext_modules = [
         Extension("cythresh",
-                  sources = ["cythresh.pyx"],
+                  sources = ["cythresh_v0_4.pyx"],
                   include_dirs = [
                       "C:/WinPython-64bit-2.7/python-2.7.5.amd64/Lib/site-packages/numpy/core/include",
                   ],
-                  ),
-                  ],
+        ),
+    ],
 )
