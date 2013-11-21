@@ -31,10 +31,10 @@ import os.path as osp
 
 import numpy as np
 cimport numpy as np
-#cdef extern from "math.h":
-#    double remquo(double numer, double, denom, int &quot)
+cdef extern from "math.h":
+    double remquo(double numer, double, denom, int &quot)
 
-from libc.math cimport remquo
+from libc.math cimport modf
 
 import scipy.sparse as sp
 from time import time
@@ -65,6 +65,7 @@ EMPTY_HEADER_LINES = 7
 ### Classes
 
 ### Functions
+
 
 ### Stoch_lib module functions here ###
 def ga_grid_cell_areas(grid_header=None, grid_fp=None):
@@ -307,7 +308,8 @@ cdef sl_grid_mass_sparse(double [:,::1] particles,
     """
     cdef int N = particles.shape[0]
     cdef int m
-    cdef double _
+    cdef double i_dbl
+    cdef double j_dbl
 
     np_arr   = np.empty((N,), dtype=np.int32)
     np_arr_2 = np.empty_like(np_arr)
@@ -318,8 +320,14 @@ cdef sl_grid_mass_sparse(double [:,::1] particles,
 
     for m in xrange(N):
         # Longitude col 0, latitude col 1
-        particle_i_arr[m], _ = divmod(particles[m,0] - olon, dlon)
-        particle_j_arr[m], _ = divmod(particles[m,1] - olat, dlat)
+#        particle_i_arr[m], _ = divmod(particles[m,0] - olon, dlon)
+#        particle_j_arr[m], _ = divmod(particles[m,1] - olat, dlat)
+#        modf(n / d, &f)
+#        i = <int>f
+        modf( (particles[m,0] - olon) / dlon, &i_dbl)
+        modf( (particles[m,1] - olat) / dlat, &j_dbl)
+        particle_i_arr[m] = <int>i_dbl
+        particle_j_arr[m] = <int>j_dbl
 
     arr_i, arr_j, arr_mass = sl_sum_particles(particle_i_arr,
                                               particle_j_arr,
@@ -548,12 +556,22 @@ def test_particles():
     elapsed_time = time() - start_time
     log("test in {} seconds".format(elapsed_time))
 
+def test_math():
+    cdef double n = 1.25
+    cdef double d = 0.1
+    cdef double f
+    cdef int i
+    modf(n / d, &f)
+    i = <int>f
+    print(i)
+
 if __name__ == "__main__":
 
 #    test_contiguous_doubles()
 #    test_contiguous_singles()
 
-    main()
+#    main()
+    test_math()
 
 
 

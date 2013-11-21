@@ -47,6 +47,7 @@ setup(
                   sources = ["cythresh_v0_4.pyx"],
                   include_dirs = [
                       "C:/WinPython-64bit-2.7/python-2.7.5.amd64/Lib/site-packages/numpy/core/include",
+                      "C:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/include",
                   ],
         ),
     ],
