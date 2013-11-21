@@ -33,7 +33,7 @@ import numpy as np
 cimport numpy as np
 
 from libc.math cimport modf
-from cpython cimport array, clone
+from cpython.array cimport array, clone
 
 import scipy.sparse as sp
 from time import time
@@ -143,7 +143,7 @@ def ga_utm_zone(point):
         zone - string of the form "50L"
 
     """
-    warn("***Warning stub function - fixed return value***")
+    warn("***Warning ga_utm_zone:stub function - fixed return value***")
     return "50L"
 
 def ga_verts_factory(grid_header):
@@ -311,10 +311,10 @@ cdef sl_grid_mass_sparse(double [:,::1] particles,
     cdef double j_dbl
 
     np_arr   = np.empty((N,), dtype=np.int32)
-    np_arr_2 = np.empty_like(np_arr)
+    np_arr2 = np.empty_like(np_arr)
 
     cdef int [::1] particle_i_arr = np_arr
-    cdef int [::1] particle_j_arr = np_arr_2
+    cdef int [::1] particle_j_arr = np_arr2
     cdef double [:] particle_mass_arr = particles[:,2]
 
     for m in xrange(N):
@@ -564,13 +564,19 @@ def test_math():
     i = <int>f
     print(i)
 
+def test_array():
+    cdef int i
+    cdef array template = array('d', [0])
+    tpl_arr = clone(template, 12, False)
+    print(tpl_arr)
+
 if __name__ == "__main__":
 
 #    test_contiguous_doubles()
 #    test_contiguous_singles()
 
 #    main()
-    test_math()
+    test_array()
 
 
 
