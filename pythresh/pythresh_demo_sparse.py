@@ -22,6 +22,8 @@ j0266_sc2_q1_001
 mem: 90 MB cpu: 13% time: 245 seconds
 
 j0272_sc1_sum_001
+mem: 98 MB, cpu: 13% @1 core, time: 413 seconds
+
 """
 ### Imports
 from __future__ import print_function
@@ -535,10 +537,10 @@ if __name__ == "__main__":
 #    test_contiguous_doubles()
 #    test_contiguous_singles()
     project_dir = r"E:\Loc_Data\pythresh_trials"
-#    stem = "J0272_SC1_SURF_MUTI_255M3HR_SUM_001"
-#    grid_fn = "MidWA_NWS_1km.DEP"
-    stem = "J0266_SC2A_SUBS_18962M3_LAM_Q1_001"
-    grid_fn = "Penguin_1000m.DEP"
+    stem = "J0272_SC1_SURF_MUTI_255M3HR_SUM_001"
+    grid_fn = "MidWA_NWS_1km.DEP"
+#    stem = "J0266_SC2A_SUBS_18962M3_LAM_Q1_001"
+#    grid_fn = "Penguin_1000m.DEP"
     main(project_dir, stem, grid_fn)
 
 

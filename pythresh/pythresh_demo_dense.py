@@ -36,12 +36,14 @@ import os.path as osp
 import numpy as np
 import numpy.ma as ma
 import pickle
+import tables as tb
 
 from numpy import array, newaxis
 from numpy import logical_and as np_and
 
 import scipy.sparse as sp
 import matplotlib.pyplot as plt
+
 
 
 from pyproj import Proj
@@ -268,7 +270,11 @@ def sl_grid_mass_dense(particles, gridder, grid_shape):
     _col = idxs[:,0]     # lon
     _row = idxs[:,1]     # lat
     mass_coo = sp.coo_matrix((_data, (_row, _col)), shape=grid_shape)
-    return mass_coo.todense()
+#    if len(mass_coo.data) > 0:
+#        print("sl_grid_mass_dense max mass is {}".format(np.max(mass_coo.data)))
+    result = mass_coo.todense()
+#    print("dense arr max mass is {}".format(np.max(result)))
+    return result
 
 def sl_grid_mass_csr(particles, gridder, grid_shape):
     """Grid the mass of the particles and return a dense array
@@ -383,8 +389,7 @@ def sl_update_agg_arrays(sim_time, surf_dense,
     earliest_mask = sim_time < min_time_arr
     update_time_mask = np_and(exceedance_mask, earliest_mask)
     min_time_arr[update_time_mask] = sim_time
-
-    return None
+    return max_mass_arr, min_time_arr
 
 
 def main(tr3_fp, lu3_fp, grid_fp, h5_fp):
@@ -416,17 +421,41 @@ def main(tr3_fp, lu3_fp, grid_fp, h5_fp):
     min_time_arr.fill(1e9)
 
     for i, tup in enumerate(particles):
-#        if i > 1000:
+#        if i > 200:
+#            warn("*** Debug: Breaking processing at step {}".format(i))
 #            break
         sim_time, surf, entr, arom, shore = tup
         surf_dense = sl_grid_mass_dense(surf, gridder, grid_shape)
-        sl_update_agg_arrays(sim_time, surf_dense,
+#        print("main surf_dense max is {}".format(np.max(surf_dense)))
+        max_mass_arr, min_time_arr = sl_update_agg_arrays(sim_time, surf_dense,
                              max_mass_arr, min_time_arr, mass_threshold_col)
+
+    exceedance_arr = max_mass_arr >= mass_threshold_col[:, np.newaxis]
 
     elapsed_time = time.time() - start_time
     print("Finished {} timesteps in {} seconds".format(i, elapsed_time))
-#    plt.imshow(exceedance, origin="upper", interpolation="nearest")
-#    plt.show()
+    result = {
+        "max_mass_arr"  : max_mass_arr,
+        "min_time_arr"  : min_time_arr,
+        "exceedance_arr": exceedance_arr,
+    }
+    return result
+
+def store(result, fp, method="pickle"):
+    """Store the results in a file and return the filepath"""
+    if method == "pickle":
+        with open(fp, "wb") as sink:
+            pickle.dump(result, sink)
+    elif method == "hdf5":
+        with tb.open_file(fp, "w") as root:
+            result_grp = root.create_group("/", "result", "pythresh results")
+            root.create_carray(result_grp, "max_mass", obj=result['max_mass_arr'])
+            root.create_carray(result_grp, "min_time", obj=result['min_time_arr'])
+            root.create_carray(result_grp, "exceedance", obj=result['exceedance_arr'])
+
+
+    return fp
+
 
 ### Tests
 
@@ -439,15 +468,35 @@ if __name__ == "__main__":
 #    grid_fn = "Penguin_1000m.DEP"
 
     h5_fn = "j0272_data.h5"
+    pkl_fn = stem + ".pkl"
 
     tr3_fp = osp.join(project_dir, "modelout", stem + ".tr3" )
     lu3_fp = osp.join(project_dir, "modelout", stem + ".lu3" )
     grid_fp = osp.join(project_dir, "grids", grid_fn)
     h5_fp = osp.join(project_dir, "hdf5", h5_fn)
+    pkl_fp = osp.join(project_dir, "hdf5", pkl_fn)
 
-    main(tr3_fp, lu3_fp, grid_fp, h5_fp)
+#    result = main(tr3_fp, lu3_fp, grid_fp, h5_fp)
+#    store(result, pkl_fp, "pickle")
 
+#    with open(pkl_fp, "rb") as source:
+#        result = pickle.load(source)
+#    store(result, h5_fp, "hdf5")
 
+    with tb.open_file(h5_fp, "r") as h5_src:
+        print(h5_src)
+        max_mass = h5_src.get_node("/result", "max_mass").read()
+        min_time = h5_src.get_node("/result", "min_time").read()
+        exceedance = h5_src.get_node("/result", "exceedance").read()
+
+#    exceedance = result['exceedance_arr']
+#    max_mass = result['max_mass_arr']
+#    min_time = result['min_time_arr']
+    min_time[min_time == 1e9] = np.nan
+
+    plt.imshow(exceedance, origin="upper", interpolation="nearest")
+    plt.colorbar()
+    plt.show()
 
 
 

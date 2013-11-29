@@ -463,7 +463,8 @@ def main(project_dir, stem, grid_fn):
     grid_header = sl_grid_header(grid_fp)
     olon, olat, dlon, dlat, ni, nj = parse_grid_header(grid_header)
     max_mass_arr = np.zeros((nj, ni))
-    min_time_arr = np.empty_like(max_mass_arr).fill(1e9)
+    min_time_arr = np.empty((nj, ni))
+    min_time_arr.fill(1e9)
 
     for i, tup in enumerate(sl_particles(tr3_fp, lu3_fp, grid_fp)):
         if i > 400:
@@ -528,9 +529,9 @@ if __name__ == "__main__":
 
 #    test_contiguous_doubles()
 #    test_contiguous_singles()
-    project_dir = r"J:\data\j0267_nv_remodel"
-    stem = "J0267_SC3_SBED_LEAK_TRA_001"
-    grid_fn = "VanGogh_800m.DEP"
+    project_dir = r"E:\Loc_Data\pythresh_trials"
+    stem = "J0272_SC1_SURF_MUTI_255M3HR_SUM_001"
+    grid_fn = "MidWA_NWS_1km.DEP"
     main(project_dir, stem, grid_fn)
 
 
