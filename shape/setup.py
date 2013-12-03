@@ -13,5 +13,5 @@ from Cython.Distutils import build_ext
 
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [Extension("helloworld", ["helloworld.pyx"])]
+    ext_modules = [Extension("cyshape", ["cyshape.pyx"])]
 )
