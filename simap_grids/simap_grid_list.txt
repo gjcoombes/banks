@@ -1,0 +1,12 @@
+\\apasa-server\p$\Currents\CIR Files\CIR Setups and Validation\Joseph Bonaparte Gulf\Hydromap Setups\GRIDS\Penguin_1000m.DEP
+\\apasa-server\p$\Currents\CIR Files\CIR Setups and Validation\Timor_Valid\HYDROMAP setups\GRIDS\test.DEP
+\\apasa-server\p$\Depths\Australian_XYZ depths\MIDTONTHW.DEP
+\\apasa-server\p$\SIMAPGRIDS\GeneralisedNW_WA_Setups\MidWA_NWS_1km.DEP
+\\apasa-server\p$\SIMAPGRIDS\GeneralisedNW_WA_Setups\NW_Shelf_1km.DEP
+\\apasa-server\p$\SIMAPGRIDS\GeneralisedNW_WA_Setups\Test200m.DEP
+\\apasa-server\p$\SIMAPGRIDS\GeneralisedNW_WA_Setups\Huge grid\WA_Indo_1km.DEP
+\\apasa-server\p$\SIMAPGRIDS\Pilbarra Region - NorthWest Shelf\J0214 - Varanus Island (250m - 18_24_S - 112_119_E))\Varanus_250m.DEP
+\\apasa-server\p$\SIMAPGRIDS\Pilbarra Region - NorthWest Shelf\J0230 - Phoenix South -1 (800m - 15_22_S - 114_123_E)\J0230_PHOENIX_800M_FINAL_v2.DEP
+\\apasa-server\p$\SIMAPGRIDS\Pilbarra Region - NorthWest Shelf\MIDWEST Region - High Resolution (250M)\ConistonSmall_2000cells.DEP
+\\apasa-server\p$\SIMAPGRIDS\SouthWest to Kimberly Region\J0230 - Phoenix South -1 (1km - 11_33_S - 104_129_E)\J0230_PHOENIX_1KM_FINAL_v2.DEP
+\\apasa-server\p$\SIMAPGRIDS\SouthWest to Kimberly Region\J0249 - Varanus Hub 2 ( 800 m - 12_30_S - 105_125_E)\MidWA_NWS_800m.DEP
