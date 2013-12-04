@@ -15,10 +15,13 @@ Prelim test runs:
 For the Hyde Scenario 1 Summer 001 run:
 Pythresh: Finished 2520 timesteps in 174.411999941 seconds
 Rough comparison to StochIndiTest
-pythresh:  Finished in 175 seconds
+pythresh:  Finished in 175 seconds  ( 173? ♥λs with hdf5 write)
            mem: 0.17 GB cpu: 13% on 1 core
 StochIndi: Finished in 265 seconds
            mem: 5.2 GB cpu: ~35% across 4 cores
+
+StochIndi with spurious: Finished in 490 seconds
+                         mem: 4.9 GB, cpu: ~35%
 
 For the Northern Endeavor Scenario 2a run:
 pythresh:  Finished 2688 timesteps in 156 seconds
@@ -26,6 +29,7 @@ pythresh:  Finished 2688 timesteps in 156 seconds
 StochIndi: Finished all timesteps in ~240 seconds
            3.5 GB; ~30% CPU (peak 50% it think)
 """
+
 ### Imports
 from __future__ import print_function
 
@@ -78,14 +82,15 @@ EMPTY_HEADER_LINES = 7
 ### Functions
 
 ### Grid cell area module
-def ga_grid_cell_areas(grid_header=None, grid_fp=None):
+def ga_grid_cell_areas(grid_header=None, grid_fp=None, zone=None):
     """
     Return an array of the areas of a column of grid cells
     """
     assert bool(grid_header) != osp.isfile(grid_fp or "")
     _gh = grid_header or sl_grid_header(grid_fp)
+    _zone = zone or None
     points_array = ga_grid_column_verts(_gh)
-    utm_points_array = ga_reproject(points_array)
+    utm_points_array = ga_reproject(points_array, zone=_zone)
     area_array = ga_polygon_areas(utm_points_array)
     return area_array
 
@@ -154,7 +159,7 @@ def ga_utm_zone(point):
         zone - string of the form "50L"
 
     """
-    warn("***Warning stub function - fixed return value***")
+    warn("***ga_utm_zone stub function - fixed return value of 50L***")
     return "50L"
 
 def ga_verts_factory(grid_header):
@@ -392,14 +397,10 @@ def sl_update_agg_arrays(sim_time, surf_dense,
     return max_mass_arr, min_time_arr
 
 
-def main(tr3_fp, lu3_fp, grid_fp, h5_fp):
+def main(tr3_fp, lu3_fp, grid_fp, h5_fp=None):
     """
     Main func
     """
-
-    tr3_fp = osp.join(project_dir, "modelout", stem + ".tr3" )
-    lu3_fp = osp.join(project_dir, "modelout", stem + ".lu3" )
-    grid_fp = osp.join(project_dir, "grids", grid_fn)
 
     header = sl_grid_header(grid_fp)
     grid_shape = (header['n_rows'], header['n_cols'])
@@ -439,6 +440,7 @@ def main(tr3_fp, lu3_fp, grid_fp, h5_fp):
         "min_time_arr"  : min_time_arr,
         "exceedance_arr": exceedance_arr,
     }
+#    store(result, h5_fp, "hdf5")
     return result
 
 def store(result, fp, method="pickle"):
@@ -452,8 +454,6 @@ def store(result, fp, method="pickle"):
             root.create_carray(result_grp, "max_mass", obj=result['max_mass_arr'])
             root.create_carray(result_grp, "min_time", obj=result['min_time_arr'])
             root.create_carray(result_grp, "exceedance", obj=result['exceedance_arr'])
-
-
     return fp
 
 
@@ -462,36 +462,38 @@ def store(result, fp, method="pickle"):
 if __name__ == "__main__":
 
     project_dir = r"E:\Loc_Data\pythresh_trials"
-    stem = "J0272_SC1_SURF_MUTI_255M3HR_SUM_001"
-    grid_fn = "MidWA_NWS_1km.DEP"
-#    stem = "J0266_SC2A_SUBS_18962M3_LAM_Q1_001"
-#    grid_fn = "Penguin_1000m.DEP"
+#    ## Project j0272
+#    stem = "J0272_SC1_SURF_MUTI_255M3HR_SUM_020"
+#    grid_fn = "MidWA_NWS_1km.DEP"
+#    h5_fn = "j0272_sc1_sum_020_data.h5"
+#    ## Project j0266
+    stem = "J0266_SC2A_SUBS_18962M3_LAM_Q1_001"
+    grid_fn = "Penguin_1000m.DEP"
+    h5_fn = "j0266_sc2_q1_001_data.h5"
 
-    h5_fn = "j0272_data.h5"
     pkl_fn = stem + ".pkl"
-
     tr3_fp = osp.join(project_dir, "modelout", stem + ".tr3" )
     lu3_fp = osp.join(project_dir, "modelout", stem + ".lu3" )
     grid_fp = osp.join(project_dir, "grids", grid_fn)
     h5_fp = osp.join(project_dir, "hdf5", h5_fn)
     pkl_fp = osp.join(project_dir, "hdf5", pkl_fn)
 
-#    result = main(tr3_fp, lu3_fp, grid_fp, h5_fp)
-#    store(result, pkl_fp, "pickle")
+    result = main(tr3_fp, lu3_fp, grid_fp, h5_fp)
+    store(result, pkl_fp, "pickle")
 
-#    with open(pkl_fp, "rb") as source:
-#        result = pickle.load(source)
-#    store(result, h5_fp, "hdf5")
+    with open(pkl_fp, "rb") as source:
+        result = pickle.load(source)
+    store(result, h5_fp, "hdf5")
 
     with tb.open_file(h5_fp, "r") as h5_src:
         print(h5_src)
         max_mass = h5_src.get_node("/result", "max_mass").read()
         min_time = h5_src.get_node("/result", "min_time").read()
         exceedance = h5_src.get_node("/result", "exceedance").read()
-
-#    exceedance = result['exceedance_arr']
-#    max_mass = result['max_mass_arr']
-#    min_time = result['min_time_arr']
+#
+##    exceedance = result['exceedance_arr']
+##    max_mass = result['max_mass_arr']
+##    min_time = result['min_time_arr']
     min_time[min_time == 1e9] = np.nan
 
     plt.imshow(exceedance, origin="upper", interpolation="nearest")
