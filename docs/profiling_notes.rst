@@ -19,7 +19,7 @@ Plan of Action
 
 Line profiling
 --------------
-With 
+With
 
 import profile_shape
 from profile_shape import make_shape_file
@@ -51,7 +51,7 @@ Results:
     so 11.7 -> 5.66 or 2.06x speedup
 
 Line_profile
-    
+
     - 16% logical mask 16%
     - 15% argwhere  15%
     - 38% lookup of lat lon from idx array - 38% (tightloop)
@@ -76,13 +76,14 @@ Time for cython array lookups
 
 mk_shp_v4 from cyshape.py
 -------------------------
+stly typed
 
 Refactor into functions in prep for cython
 Improved time of 5.09s
-Changes 
+Changes
     - made corner arrays for lookup
     - using index-range loops in prep for c-speed
-    - added new function compute_corners 
+    - added new function compute_corners
     - inlined the polygon vert
 
 Time for Hello World cython
@@ -95,3 +96,6 @@ Working code as compiled
 % timeit in 5.12s
 
 Typed variables inside compute_corners - 5.14s
+Typed variables inside prob_threshold_array - 5.14s
+cimport numpy                               - 5.16s
+Mostly type compute_and_write_records but still - 5.08s

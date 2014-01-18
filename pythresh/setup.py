@@ -18,37 +18,18 @@ import numpy
 
 Options.annotate = True
 
-copt =  {'msvc': ['/openmp', '/Ox', '/fp:fast','/favor:INTEL64','/Og']}
-#setup(
-#    cmdclass = {'build_ext': build_ext},
-#    ext_modules = [Extension("cythresh", ["cythresh.pyx"])]
-#)
-
-#extensions = [
-#    Extension("cythresh", ["cythresh.pyx"],
-#        include_dirs = [...],
-#        libraries = [...],
-#        library_dirs = [...]),
-#]
-#setup(
-#    name = "cythresh",
-#    ext_modules = cythonize(
-#        "cythresh.pyx",
-#        include_dirs = [
-#            r"C:\WinPython-64bit-2.7\python-2.7.5.amd64\Lib\site-packages\numpy\core\include",
-#        ],
-#    ),
-#)
+copt = ['/openmp', '/Ox', '/fp:fast','/favor:INTEL64','/Og']
 
 setup(
     cmdclass = {'build_ext': build_ext},
     ext_modules = [
-        Extension("cythresh",
-                  sources = ["cythresh_v0_5.pyx"],
+        Extension("cythresh_timeseries",
+                  sources = ["cythresh_v0_8.pyx"],
                   include_dirs = [
                       "C:/WinPython-64bit-2.7/python-2.7.5.amd64/Lib/site-packages/numpy/core/include",
                       "C:/Program Files (x86)/Microsoft Visual Studio 9.0/VC/include",
                   ],
+                  extra_compile_args = copt,
         ),
     ],
 )
