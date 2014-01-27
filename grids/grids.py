@@ -17,7 +17,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 debug, info, error = logging.debug, logging.info, logging.error
 ### Constants
-
+SOUTHERN_HEMISPHERE = TRUE
 ### Classes
 
 ### Functions
