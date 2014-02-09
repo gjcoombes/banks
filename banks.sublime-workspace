@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"nc_var",
+				"nc_var_coroutine_with_prefetch	function"
+			],
+			[
+				"NC",
+				"NC_VARS"
+			],
+			[
+				"nc",
+				"nc_var_generator	function"
+			],
+			[
+				"test",
+				"test_multi_generator	function"
+			],
+			[
+				"nc_",
+				"nc_var_coroutine_with_prefetch	function"
+			],
+			[
+				"ne",
+				"netCDF4"
+			],
+			[
+				"Not",
+				"NotImplementedError	class"
+			],
+			[
+				"long",
+				"longitudes	statement"
+			],
+			[
+				"cre",
+				"createVariable	function"
+			],
+			[
+				"nc_vars",
+				"nc_vars_lut	import"
+			],
+			[
+				"nc_va",
+				"nc_var_dict	import"
+			],
+			[
 				"pr",
 				"prof"
 			],
@@ -36,66 +80,43 @@
 	"buffers":
 	[
 		{
-			"contents": "Profiling of make_shpe_file in netcdf_to_shape.py\n=================================================\n\nTiming runs for sc8 sum entr_prob_100ppb\nWall time 11.7s\nNow removing print statements still 11.7s\nNow moving to another file for iterative profiling - profile_shape.py\n\nPlan of Action\n--------------\n\n1.  Line profile for silly inclusions to loop\n2.  Inline polygon code - remove shapely\n3.  Replace mask and argwhere with non_zero numpu funcs\n3.  Replace grid_polygon computation with array lookup for corners\n4.  Prepare for Cython\n    a.  Numpy array version\n    b.  Unrolled loop version\n\nLine profiling\n--------------\nWith \n\nimport profile_shape\nfrom profile_shape import make_shape_file\n\nnc_var = \"entr_prob_100ppb\"\nseason = \"sum\"\ncfg = profile_shape.CONFIG\n\n%lprun -f make_shape_file make_shape_file(season, nc_var, cfg)\n\nHighlights:\n    Overall run time from 11.7s -> 14.2s - ie profiling overhead\n    20% on the mean diff line\n    29% on the threshold_arr slice (inside loop doh!)\n    19% on the coord lookup for tuple!\n\nmk_shp_v2\n---------\n\nChanges:\n    - Inline grid_edge_length and diff a single pair (confirmed all equal)\n    - Move the slice of threshold threshold arr outside of loop\n    - Unpack lat, lon idx with the loop\n\nResults:\n    %timeit mk_shp_v2(season, nc_var, cfg)\n\n    5.66s per loop\n    so 11.7 -> 5.66 or 2.06x speedup\n\nLine_profile\n    \n    - 16% logical mask 16%\n    - 15% argwhere  15%\n    - 38% lookup of lat lon from idx array - 38% (tightloop)\n    - 7% grid_polygon\n    - 9% update of fiona record\n    - 11% write of record\n\nNext:\n    Ensure local copy of lon/lat arrays\n    Inline record update - mk_shp_v3\n\nmk_shp_v3\n---------\noriginal timeit 5.67s\n\nNow change lon and lat to local numpy arrays\nNow timeit 5.73s\nReshape array and stack in columns\n5.72s\n\nTime for cython array lookups\n\nmk_shp_v4 from cyshape.py\n-------------------------\nstly typed\n\nRefactor into functions in prep for cython\nImproved time of 5.09s\nChanges \n    - made corner arrays for lookup\n    - using index-range loops in prep for c-speed\n    - added new function compute_corners \n    - inlined the polygon vert\n\nTime for Hello World cython\nGot to hello world after some trouble with compilers\nFollow directions here\nhttp://blog.victorjabur.com/2011/06/05/compiling-python-2-7-modules-on-windows-32-and-64-using-msvc-2008-express/\n\nCompiled cyshape in to cyshape.pyd using cython and msvc compiler\nWorking code as compiled\n% timeit in 5.12s\n\nTyped variables inside compute_corners - 5.14s\nTyped variables inside prob_threshold_array - 5.14s\ncimport numpy                               - 5.16s\nMostly type compute_and_write_records but still - 5.08s",
-			"file": "docs/profiling_notes.rst",
-			"file_size": 2583,
-			"file_write_time": 130262347934294425,
+			"contents": "\nThis is Lua 5.2.3, released on 11 Nov 2013.\n\nFor installation instructions, license details, and\nfurther information about Lua, see doc/readme.html.\n\n",
+			"file": "/C/Users/gav/src/lua/lua-5.2.3/lua-5.2.3/README",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 2658,
-				"line_ending": "Windows"
+				"buffer_size": 151,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "shape/cyshape.pyx",
+			"contents": "Package Control Messages\n========================\n\nAnaconda:\n--------\n\n  Changes in 1.1.0\n  ================\n  \n   - Added linters rc configuration files support\n   - Added vagrant boxes python environments support\n   - Port gutter mark icon themes from SublimeLinter\n   - Added vagrant commands support\n   - Debug mode for jsonserver added\n  \n  Fixes\n  =====\n  \n   - Critical bug on python3, #47\n   - Wrong key in settings, #48\n   - Minor fixes on auto-format\n   - IndexError exception in is_python decorators in windows platform, #57\n   - Exception raised when no definiitions where returned on goto to imposible modules when using vagrant\n   - Linter does not try to lint mako templates now, #62\n   - Workaround to fix problem with versions of Python prior to 2.6.5 that doesn't support unicode strings as dictionary keys, #59\n   - Fix problems with unicode in linting, #66\n   - Fixes #69 being produced by a wrong indentation\n   - more SublimeLinter legacy code fixes, now Anaconda does not underlines words that are matched by the underline regex match in commen\n  ts or strings, #68\n   - rename command was not working properly due bad subdirectory comparission, #70\n   - sublime text view.file_name() method was returning None instead of empty string whith unsaved buffers, #72\n   - now anaconda uses pep8 when pylint is configured as main linter library, #75\n   - fix silently ignored configuration option pyflakes_ignore_import_*, #76\n   - SublimeLinter/Sublime Lint regexes does not work (what a surprise), replace underline logic to fix it. #77\n   - goto command can handle now multiple results, #78\n   - seems like some packagers/versions of pylint add offsets to their output while others doesnt, #81\n   - fixed incorrect behaviour affecting anaconda_linting_behaviour option, #65\n  \n  \n  Resolves\n  ========\n  \n    - merge development branch into master, Resolves #52 /cc @enagorny\n    - added anaconda_linter_mark_style config option to fill, outline or disable outlines in linted files. Resolves #61\n    - fix typos in configuration file comments. #64\n    - now anaconda shows messages in the status bar when usages, goto and doc doesn't find anything, #79\n    - added workaround to resolve, #74\n    - added JSON environment config file support, #83\n  \n  For more detaild information about those changes run git v1.1.0..v1.0.1 on git repository\n  \n\n  Changes in 1.0.1\n  ================\n  \n   - JsonServer follows now a full modular approach\n   - Jedi library has been updated to version 0.7.0alpha1\n   - Logic split in event listeners has been improved\n  \n  Resolves\n  ========\n  \n    - #43\n    - #44\n    - #45\n    - #46\n  \n\n  Changes in 1.0.0\n  ================\n  \n   - The plugin has now a single entry point\n   - anaconda_linter.py has been removed\n   - Libraries logic are now inside anaconda_lib package\n   - Commands are now inside commands package\n   - Event listeners are now inside listeners package\n   - anaconda.py has now a single one responsability, startup the plugin\n   - Some code has been cleaned\n   - Anaconda now follows a modular architecture\n   - Version has been upgraded to 1.0.0 first stable release\n  \n  Resolves\n  ========\n  \n    - #42\n  \n\n\nAnaconda:\n--------\n\n  Changes in 1.1.0\n  ================\n  \n   - Added linters rc configuration files support\n   - Added vagrant boxes python environments support\n   - Port gutter mark icon themes from SublimeLinter\n   - Added vagrant commands support\n   - Debug mode for jsonserver added\n  \n  Fixes\n  =====\n  \n   - Critical bug on python3, #47\n   - Wrong key in settings, #48\n   - Minor fixes on auto-format\n   - IndexError exception in is_python decorators in windows platform, #57\n   - Exception raised when no definiitions where returned on goto to imposible modules when using vagrant\n   - Linter does not try to lint mako templates now, #62\n   - Workaround to fix problem with versions of Python prior to 2.6.5 that doesn't support unicode strings as dictionary keys, #59\n   - Fix problems with unicode in linting, #66\n   - Fixes #69 being produced by a wrong indentation\n   - more SublimeLinter legacy code fixes, now Anaconda does not underlines words that are matched by the underline regex match in commen\n  ts or strings, #68\n   - rename command was not working properly due bad subdirectory comparission, #70\n   - sublime text view.file_name() method was returning None instead of empty string whith unsaved buffers, #72\n   - now anaconda uses pep8 when pylint is configured as main linter library, #75\n   - fix silently ignored configuration option pyflakes_ignore_import_*, #76\n   - SublimeLinter/Sublime Lint regexes does not work (what a surprise), replace underline logic to fix it. #77\n   - goto command can handle now multiple results, #78\n   - seems like some packagers/versions of pylint add offsets to their output while others doesnt, #81\n   - fixed incorrect behaviour affecting anaconda_linting_behaviour option, #65\n  \n  \n  Resolves\n  ========\n  \n    - merge development branch into master, Resolves #52 /cc @enagorny\n    - added anaconda_linter_mark_style config option to fill, outline or disable outlines in linted files. Resolves #61\n    - fix typos in configuration file comments. #64\n    - now anaconda shows messages in the status bar when usages, goto and doc doesn't find anything, #79\n    - added workaround to resolve, #74\n    - added JSON environment config file support, #83\n  \n  For more detaild information about those changes run git v1.1.0..v1.0.1 on git repository\n  \n\n  Changes in 1.0.1\n  ================\n  \n   - JsonServer follows now a full modular approach\n   - Jedi library has been updated to version 0.7.0alpha1\n   - Logic split in event listeners has been improved\n  \n  Resolves\n  ========\n  \n    - #43\n    - #44\n    - #45\n    - #46\n  \n\n  Changes in 1.0.0\n  ================\n  \n   - The plugin has now a single entry point\n   - anaconda_linter.py has been removed\n   - Libraries logic are now inside anaconda_lib package\n   - Commands are now inside commands package\n   - Event listeners are now inside listeners package\n   - anaconda.py has now a single one responsability, startup the plugin\n   - Some code has been cleaned\n   - Anaconda now follows a modular architecture\n   - Version has been upgraded to 1.0.0 first stable release\n  \n  Resolves\n  ========\n  \n    - #42\n  \n",
 			"settings":
 			{
-				"buffer_size": 6545,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "shape/setup.py",
-			"settings":
-			{
-				"buffer_size": 359,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "shape/cyrun.py",
-			"settings":
-			{
-				"buffer_size": 471,
+				"buffer_size": 6315,
 				"line_ending": "Windows",
-				"name": "#! /usr/bin/env python"
-			}
-		},
-		{
-			"file": "shape/cyshape.pyx",
-			"settings":
-			{
-				"buffer_size": 6545,
-				"line_ending": "Windows"
+				"name": "Package Control Messages",
+				"scratch": true
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 311.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Discover Packages"
 			],
 			[
 				"pa",
-				"Package Control: Install Package"
-			],
-			[
-				"pack",
 				"Package Control: Install Package"
 			],
 			[
@@ -124,6 +145,15 @@
 	},
 	"file_history":
 	[
+		"/C/R/rpy2-2.3.1/README",
+		"/C/Users/gav/src/matlab/ncAverageST.m",
+		"/C/panthalassa/bonaparte/bonaparte/utils/netcdf.py",
+		"/C/panthalassa/banks/aggregate/nc_var_dict.py",
+		"/C/panthalassa/banks/aggregate/aggregate_netcdf.py",
+		"/C/panthalassa/banks/shape/cyshape.pyx",
+		"/C/panthalassa/banks/shape/cyrun.py",
+		"/C/panthalassa/banks/shape/setup.py",
+		"/C/panthalassa/banks/docs/profiling_notes.rst",
 		"/C/panthalassa/banks/shape/helloworld.pyx",
 		"/C/Anaconda/Lib/distutils/distutils.cfg",
 		"/C/web2py/applications/sunda/views/default/squares_path.html",
@@ -165,6 +195,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"    ('arom_dosethresh', 'nothing'),",
+			"len(lons)",
+			"; var(i).method=",
+			"% i=i+1;\n% var(i).name='thick_avg'; var(i).method='weighted mean';\n% i=i+1;\n% var(i).name='thick_max'; var(i).method='max';\n% i=i+1;\n% var(i).name='thick_thresh'; var(i).method='nothing';"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -172,6 +206,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"n_lons",
+			": "
 		],
 		"reverse": false,
 		"show_context": true,
@@ -182,24 +218,29 @@
 	"groups":
 	[
 		{
+			"sheets":
+			[
+			]
+		},
+		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "docs/profiling_notes.rst",
+					"file": "/C/Users/gav/src/lua/lua-5.2.3/lua-5.2.3/README",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2658,
+						"buffer_size": 151,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2658,
-								2658
+								0,
+								0
 							]
 						],
 						"settings":
@@ -215,10 +256,30 @@
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -226,30 +287,9 @@
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
+								"bh_double_quote_close"
 							],
-							"highlight_line": false,
-							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"vintage":
 							{
 								"action": null,
@@ -259,7 +299,7 @@
 								"cancel_action": false,
 								"expecting_register": false,
 								"expecting_user_input": false,
-								"mode": 1,
+								"mode": 2,
 								"motion": null,
 								"motion_digits":
 								[
@@ -275,26 +315,26 @@
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 996.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "shape/cyshape.pyx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6545,
+						"buffer_size": 6315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5180,
-								5180
+								899,
+								899
 							]
 						],
 						"settings":
@@ -306,365 +346,51 @@
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
-							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_digits":
-								[
-								],
-								"cancel_action": false,
-								"expecting_register": false,
-								"expecting_user_input": false,
-								"last_character_search": "2",
-								"last_character_search_forward": true,
-								"mode": 2,
-								"motion": null,
-								"motion_digits":
-								[
-								],
-								"next_mode": 2,
-								"next_mode_command": null,
-								"register": null,
-								"stashed_action": null,
-								"user_action_input": null,
-								"user_input": null,
-								"user_motion_input": null,
-								"xpos": 16
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 2484.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "shape/setup.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 359,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								134,
-								134
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
 							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"vintage":
-							{
-								"action": null,
-								"action_digits":
-								[
-								],
-								"cancel_action": false,
-								"expecting_register": false,
-								"expecting_user_input": false,
-								"mode": 2,
-								"motion": null,
-								"motion_digits":
-								[
-								],
-								"next_mode": 2,
-								"next_mode_command": null,
-								"register": null,
-								"stashed_action": null,
-								"user_action_input": null,
-								"user_input": null,
-								"user_motion_input": null,
-								"xpos": 0
-							}
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "shape/cyrun.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 471,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38,
-								38
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "#! /usr/bin/env python",
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
-							],
-							"highlight_line": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"vintage":
-							{
-								"action": null,
-								"action_digits":
-								[
-								],
-								"cancel_action": false,
-								"expecting_register": false,
-								"expecting_user_input": false,
-								"mode": 2,
-								"motion": null,
-								"motion_digits":
-								[
-								],
-								"next_mode": 2,
-								"next_mode_command": null,
-								"register": null,
-								"stashed_action": null,
-								"user_action_input": null,
-								"user_input": null,
-								"user_motion_input": null,
-								"xpos": 13
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "shape/cyshape.pyx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6545,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								46,
-								46
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
-							],
-							"highlight_line": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_digits":
-								[
-								],
-								"cancel_action": false,
-								"expecting_register": false,
-								"expecting_user_input": false,
-								"last_character_search": "l",
-								"last_character_search_forward": true,
-								"mode": 2,
-								"motion": null,
-								"motion_digits":
-								[
-								],
-								"next_mode": 2,
-								"next_mode_command": null,
-								"register": null,
-								"stashed_action": null,
-								"user_action_input": null,
-								"user_input": null,
-								"user_motion_input": null,
-								"xpos": 22
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 594.0,
-						"zoom_level": 1.0
-					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -687,11 +413,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -701,10 +434,26 @@
 		]
 	},
 	"menu_visible": true,
+	"output.anaconda_documentation":
+	{
+		"height": 358.0
+	},
+	"output.exec":
+	{
+		"height": 585.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.haskell_sublime_load":
+	{
+		"height": 118.0
+	},
 	"project": "banks.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -735,7 +484,7 @@
 	{
 		"vintage":
 		{
-			"_cmdline_cd": "C:\\panthalassa\\banks\\shape",
+			"_cmdline_cd": "C:\\Program Files\\Sublime Text 3",
 			"last_buffer_search": "indent"
 		}
 	},
